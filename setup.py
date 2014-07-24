@@ -2,7 +2,7 @@
 
 from distutils.core import setup
 
-setup(name='Distutils',
+setup(name='SecTool',
       version='0.1',
       description="""Web Application security scanning tool designed to be added
       to a CI system""",

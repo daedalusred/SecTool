@@ -5,4 +5,5 @@
 .env/
 build/
 .ropeproject
+sectool-report*
 wapitiOutput.json
