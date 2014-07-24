@@ -45,10 +45,11 @@ def sectool(url, email, plugins=PLUGINS, checkers=CHECKERS[0:2], output=None,
     for i in plugins:
         instance = PLUGIN_LOADER.load_plugin(i)
         t0 = time.time()
-        res = instance.run(url, checkers, output, format, auth)
+        file_loc = instance.run(url, checkers, output, format, auth)
         t1 = time.time()
         print("TIME TAKEN: ", (t1 - t0) / 60)
-        print(res)
+        print(file_loc)
+        # Call e-mail with JSON filename?
 
 if __name__ == '__main__':
     parser = ArgumentParser()

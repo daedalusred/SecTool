@@ -27,8 +27,7 @@ class Wapiti(Plugin):
                    output_format, '-o', output]
             if auth is not None:
                 cmd.append('--auth', auth)
-            print(cmd)
-            stdout = self.__exec_process__(cmd)
-            return stdout
+            self.__exec_process__(cmd)
+            return output
         except Exception:
             raise
