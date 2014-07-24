@@ -14,8 +14,8 @@ from email.mime.text import MIMEText
 
 def getCommandLineOptions():
     # TODO: get the command line options
-    me = "example1@example.com"  # TODO: set this value
-    you = "example2@example.com"  # TODO: get this from the cmd line options
+    me = "peter.mcnerny@digital.cabinet-office.gov.uk"  # TODO: set this value
+    you = "peter.mcnerny@digital.cabinet-office.gov.uk"  # TODO: get this from the cmd line options
     pluginName = None  # TODO: get this from the cmd line options
     return pluginName, me, you
 
@@ -44,12 +44,30 @@ def createEmail(output):
     msg['To'] = options[2]  # user's email address
 
 
-def sendEmail(self, me, you, msg):
+def sendEmail(me, you, msg):
     # Send the email via the SMTP server
-    s = smtplib.SMTP('localhost')  # TODO: update the server name
-    s.sendmail(me, [you], msg.as_string())
+    s = smtplib.SMTP('smtp.gmail.com')
+    s.sendmail(me, [you], msg)
     s.quit
 
 
 class Email:
     pass
+
+
+#
+# TESTING
+#
+addr = "peter.mcnerny@digital.cabinet-office.gov.uk"
+message = MIMEText("This is a text message")
+message['Subject'] = "Test"
+message['from'] = "noreply@digital.cabinet-office.gov.uk"
+message['to'] = addr
+
+srv = smtplib.SMTP("smtp.gmail.com")
+srv.ehlo()
+srv.starttls()
+srv.ehlo()
+srv.login(addr, "fnunearexavcvklx")
+srv.sendmail(addr, addr, message.as_string())
+srv.close()
