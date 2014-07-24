@@ -26,7 +26,7 @@ class Wapiti(Plugin):
             cmd = ['wapiti', url, '-m', '-all,' + checker_liststr, '--format',
                    output_format, '-o', output]
             if auth is not None:
-                cmd.append('--auth', auth)
+                cmd.extend(['--auth', auth])
             self.__exec_process__(cmd)
             return output
         except Exception:
