@@ -136,6 +136,10 @@ class Email:
         srv.sendmail(FROM_ADDRESS, self.usersEmailAddress, message.as_string())
         srv.close()
 
+    def triggerEmailAlert(self):
+        emailMessage = self.createEmail()
+        self.sendEmail(emailMessage)
+
 
 ###############################################################################
 # Testing
