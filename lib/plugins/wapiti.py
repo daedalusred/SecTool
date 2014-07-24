@@ -25,6 +25,7 @@ class Wapiti(Plugin):
             checker_liststr = ','.join(checkers)
             cmd = ['wapiti', url, '-m', '-all,' + checker_liststr, '--format',
                    output_format, '-o', output]
+            print("calling {0} with command {1}".format(self.name, cmd))
             if auth is not None:
                 cmd.extend(['--auth', auth])
             self.__exec_process__(cmd)
