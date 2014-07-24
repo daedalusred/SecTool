@@ -1,29 +1,38 @@
 #!/usr/bin/env python3
 
-import argh
 import datetime
-from argh import arg
+from argh import arg, dispatch, set_default_command
+from argparse import ArgumentParser, ArgumentError
 
-PLUGIN_LIST = ['wapiti']
-DEFAULT_CHECKERS = ['xss', 'sql']
-DEFAULT_FORMAT = 'json'
-DEFAULT_OUTPUT_FILENAME = "sectool-report-{0}-{1}"
+PLUGINS = ['wapiti']
+CHECKERS = ['xss', 'sql']
+FORMAT = ['json']
+OUTPUT_FILE = "sectool-report-{0}-{1}"
 
 
-@arg('u', nargs=1, type=str, help="URL to test against.")
-@arg('e', nargs=1, type=str, help="Email to send generated report to.")
-@arg('--plugins', choices=PLUGIN_LIST, help="Plugins to use.")
-@arg('--checkers', choices=DEFAULT_CHECKERS, help="Checkers to use.")
-@arg('--output', help="Output file name.")
-def sectool(u, e, plugins=PLUGIN_LIST, checkers=DEFAULT_CHECKERS, output=None):
-    if not any([u, e]):
-        print("Failed to set arg")
+@arg('url', type=str, help="URL to test against.")
+@arg('email', help="Email to send generated report to.")
+@arg('--plugins', choices=PLUGINS, help="Plugins to use.", type=str,
+     nargs='+')
+@arg('--checkers', choices=CHECKERS, help="Checkers to use.", type=str,
+     nargs='+')
+@arg('--output', help="Output file name.", type=str)
+@arg('--format', choices=FORMAT, help='Format type to use for output',
+     type=str)
+def sectool(url, email, plugins=PLUGINS, checkers=CHECKERS, output=None,
+            format=FORMAT):
+    """Run security plugins to check for vulnerabilities in web applications.
+    This tool is designed to be integrated inside of a Continuous Integration
+    pipeline.
+    """
+    if url is None or email is None:
+        raise ArgumentError('url and email must both be specified')
     if output is None:
-        output = DEFAULT_OUTPUT_FILENAME.format('$'.join(plugins),
-                                                datetime.datetime.now())
-
-    print(u, e, plugins, checkers, output)
-
+        output = OUTPUT_FILE.format('$'.join(plugins),
+                                    datetime.datetime.now())
+    print(output)
 
 if __name__ == '__main__':
-    argh.dispatch_command(sectool)
+    parser = ArgumentParser()
+    set_default_command(parser, sectool)
+    dispatch(parser)
