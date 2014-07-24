@@ -24,6 +24,8 @@ GOOGLE_APP_PASSWORD = "fnunearexavcvklx"
 ###############################################################################
 # Class
 ###############################################################################
+
+
 class Email:
     def __init__(self, pluginName = "Wapiti", jsonOutputFileName = "wapitiOutput.json", usersEmailAddress = "peter.mcnerny@digital.cabinet-office.gov.uk", targetUrl = "http://localhost:3000"):
         self.pluginName = pluginName
@@ -39,7 +41,8 @@ class Email:
         # infos, vulnerabilities, classifications, anomalies
 
         # output is what will be displayed in the email
-        output = "Summary\n=======\n\n**Category**\t\t\t\t**Number of Vulnerabilities Found**\n"
+        title = "Summary"
+        output = "{0}\n{1}\n\n**Category**\t\t\t\t**Number of Vulnerabilities Found**\n".format(title, self.generateUnderlineCharacters(len(title), "="))
 
         data = json.loads(json_data)
 
@@ -47,7 +50,6 @@ class Email:
 
         # SUMMARY: the first part of the output is a summary of the number of
         # vulnerabilities found for each category of vulnerability
-
         listOfVulns = []
 
         # maintain count of vulns and append the parsed vuln data to the output
@@ -55,7 +57,8 @@ class Email:
             noOfVulns += len(v)
 
             if len(v) != 0:
-                listOfVulns.append(v)
+                if not listOfVulns.__contains__(v):
+                    listOfVulns.append(k)
 
             # TODO: nicely format output for email (console will look bad)
             # set an appropriate number of tabs for tidy output
@@ -71,41 +74,54 @@ class Email:
 
             output += "{0}{1}{2}\n".format(k, tabs, len(v))
 
+
         # ANOMALIES: the next part of the output describes a found attack, its
         # location, the HTTP request and the cURL command line command used to find
         # the vuln
-        #for vuln in listOfVulns:
-        #    data['classifications']
+        title = "Detailed Vulnerability Information"
+        output += "\n\n{0}\n".format(title)
+        output += self.generateUnderlineCharacters(len(title), "=")
 
-        for k, v in data['classifications'].items():
+        for vuln in listOfVulns:
+            output += "\n\n{0}\n{1}".format(vuln, self.generateUnderlineCharacters(len(vuln), "-"))
+            output += "\n**Desciption**\n\t"
+            for k, v in data['classifications'].items():
+                output += "TODO: get description text from classifications.desc\n"
+                output += "**Vulnerability found in .path TODO COMPLETE {0}**\n\n"
+                output += "**Description\n\t TODO COMPLETE .info{0}**\n\n"
+                output += "**HTTP Request\n\t TODO COMPLETE .http_request{0}**\n\n"
+                output += "**cURL command line\n\tTODO COMPLETE .curl_cmd{0}**\n\n"
+                #if k == vuln:
+                #    print(k)
+
+            output += "\n**Solutions**\n\tTODO .sol"
+
+            # TODO complete me
+
+            output += "\n**References\n\tTODO .ref"
+
+
+        for k, v in data['anomalies'].items():
             print(k, v)
 
-        print (output)  # TODO: DEBUG - remove
+        print(output)  # TODO: DEBUG - remove
         #noOfVulns = len(data['vulnerabilities'].values()) # wrong
 
         ### DEBUG ###
         #for key, val in json.loads(json_data).items():
          #   print(key, val)
 
-
-
         return output, noOfVulns
 
-
     def getOutputFromJsonObject(self, json_data):
-        #
-        # TODO: parse the JSON object containing the output
-        #
         json_data = open(self.jsonOutputFileName).read()
 
-        #print(json_data)
-
-        # output needs to be handled specific to each plugin
+        # handling of output needs to be specific to each plugin
+        parsedData = None
         if self.pluginName.lower() == "wapiti":
             parsedData = self.parseWapitiOutput(json_data)
 
         return parsedData[0], parsedData[1]  # output, numOfErrors
-
 
     def createEmail(self):
         # create the contents of the email
@@ -126,7 +142,6 @@ class Email:
         message['to'] = self.usersEmailAddress  # email address of user who ran the tool
         return message
 
-
     def sendEmail(self, message):
         srv = smtplib.SMTP(SMTP_SERVER)
         srv.ehlo()
@@ -140,14 +155,23 @@ class Email:
         emailMessage = self.createEmail()
         self.sendEmail(emailMessage)
 
+    # helper functions
+    def generateUnderlineCharacters(self, titleLength, underlineType):
+        line = ""
+        i = 0
+        while i < titleLength:
+            line += underlineType
+            i += 1
+
+        return line
+
 
 ###############################################################################
 # Testing
 ###############################################################################
-
 e = Email()
 msg = e.createEmail()
-e.sendEmail(msg)
+#e.sendEmail(msg)  # TODO: uncomment for testing
 
 
 
