@@ -96,7 +96,7 @@ class Email:
         #
         # TODO: parse the JSON object containing the output
         #
-        json_data = open(self.jsonOutputFileName).read()
+        json_data = open(self.jsonOutputFileName, 'r+').read()
 
         #print(json_data)
 
@@ -145,9 +145,6 @@ class Email:
 # Testing
 ###############################################################################
 
-e = Email()
-msg = e.createEmail()
-e.sendEmail(msg)
 
 
 

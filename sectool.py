@@ -5,6 +5,7 @@ import datetime
 from argh import arg, dispatch, set_default_command
 from argparse import ArgumentParser, ArgumentError
 from lib.plugin_loader import PluginLoader
+from emailAlert import Email
 
 PLUGIN_LOADER = PluginLoader()
 PLUGINS = PLUGIN_LOADER.plugins
@@ -49,15 +50,20 @@ def sectool(url, email, plugins=PLUGINS, checkers=CHECKERS[0:2], output=None,
         t1 = time.time()
         print("TIME TAKEN: ", (t1 - t0) / 60, " seconds")
 
+        print(i)
         # Call e-mail with JSON filename?
         # url, json_filename, plugin
-        send_email(url, e_mail, file_loc, i)
+        send_email(url, email, file_loc, i)
 
 
 def send_email(url, e_mail, file_loc, plugin):
     """Send an e-mail with a report.
     """
-    pass
+    email_obj = Email(targetUrl=url, usersEmailAddress=e_mail,
+                      jsonOutputFileName=file_loc, pluginName=plugin)
+
+    email_obj.triggerEmailAlert()
+
 
 if __name__ == '__main__':
     parser = ArgumentParser()
