@@ -47,14 +47,14 @@ def sectool(url, email, plugins=PLUGINS, checkers=CHECKERS[0:2], output=None,
         t0 = time.time()
         file_loc = instance.run(url, checkers, output, format, auth)
         t1 = time.time()
-        print("TIME TAKEN: ", (t1 - t0) / 60)
+        print("TIME TAKEN: ", (t1 - t0) / 60, " seconds")
 
         # Call e-mail with JSON filename?
         # url, json_filename, plugin
-        send_email(url, file_loc, i)
+        send_email(url, e_mail, file_loc, i)
 
 
-def send_email(url, file_loc, plugin):
+def send_email(url, e_mail, file_loc, plugin):
     """Send an e-mail with a report.
     """
     pass
