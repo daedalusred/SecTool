@@ -114,7 +114,9 @@ class Email:
         return output, noOfVulns
 
     def getOutputFromJsonObject(self, json_data):
-        json_data = open(self.jsonOutputFileName).read()
+        #json_data = open(self.jsonOutputFileName).read()
+        json_data = open(self.jsonOutputFileName, 'r+').read()
+
 
         # handling of output needs to be specific to each plugin
         parsedData = None
