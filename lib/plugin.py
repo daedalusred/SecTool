@@ -15,7 +15,6 @@ class ProcessException(Exception):
 class Plugin(object):
     """Represents the base methods a Plugin must implement.
     """
-
     def __init__(self, name):
         self.name = name
 

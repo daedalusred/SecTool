@@ -2,6 +2,7 @@
 """
 
 from .plugins import wapiti
+assert wapiti  # Silence unused import warnings
 from os.path import splitext
 from os import listdir
 
@@ -14,15 +15,19 @@ class PluginLoader(object):
     """Object that can load plugins and return constructed instances of a
     plugin.
     """
-
     def __init__(self):
         self.plugins = [splitext(x)[0] for x in listdir(PLUGIN_LOC)
                         if x not in FILE_NAME_BLACKLIST and
                         splitext(x)[1] not in FILE_EXT_BLACKLIST]
 
     def load_plugin(self, plugin_name):
-
-        plugin_instance = eval("{0}.{1}".format(plugin_name,
-                                                plugin_name.capitalize()))
-        plugin_instance = plugin_instance(plugin_name)
-        return plugin_instance
+        """Load a plugin from the plugins directory with the name set in
+        plugin_name. If an instance can't be found raise the exception.
+        """
+        try:
+            plugin_instance = eval("{0}.{1}".format(plugin_name,
+                                                    plugin_name.capitalize()))
+            plugin_instance = plugin_instance(plugin_name)
+            return plugin_instance
+        except Exception:
+            raise

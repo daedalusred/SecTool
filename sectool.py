@@ -4,8 +4,11 @@ import time
 import datetime
 from argh import arg, dispatch, set_default_command
 from argparse import ArgumentParser, ArgumentError
+from sys import exit
+
 from lib.plugin_loader import PluginLoader
 from emailAlert import Email
+
 
 PLUGIN_LOADER = PluginLoader()
 PLUGINS = PLUGIN_LOADER.plugins
@@ -44,10 +47,17 @@ def sectool(url, email, plugins=PLUGINS, checkers=CHECKERS[0:2], output=None,
                                     current_date,
                                     format)
     for i in plugins:
-        instance = PLUGIN_LOADER.load_plugin(i)
+        try:
+            instance = PLUGIN_LOADER.load_plugin(i)
+        except NameError:
+            print("""Could not find plugin with name {0}, please enter name of
+                  valid plugin""".format(i))
+            exit(1)
+
         t0 = time.time()
         file_loc = instance.run(url, checkers, output, format, auth)
         t1 = time.time()
+
         print("TIME TAKEN: {0:.2f} minutes".format((t1 - t0) / 60))
         send_email(url, email, file_loc, i)
 
@@ -57,7 +67,6 @@ def send_email(url, e_mail, file_loc, plugin):
     """
     email_obj = Email(targetUrl=url, usersEmailAddress=e_mail,
                       jsonOutputFileName=file_loc, pluginName=plugin)
-
     email_obj.triggerEmailAlert()
 
 
