@@ -50,7 +50,7 @@ class Email:
 
         # SUMMARY: the first part of the output is a summary of the number of
         # vulnerabilities found for each category of vulnerability
-        listOfVulns = []
+        listOfVulns = []  # TODO: change this to a tuple of <name, noOfVulns>
 
         # maintain count of vulns and append the parsed vuln data to the output
         for k, v in data['vulnerabilities'].items():
@@ -75,41 +75,38 @@ class Email:
             output += "{0}{1}{2}\n".format(k, tabs, len(v))
 
 
-        # ANOMALIES: the next part of the output describes a found attack, its
-        # location, the HTTP request and the cURL command line command used to find
-        # the vuln
+        # ANOMALIES & VULNERABILITIES: the next part of the output describes
+        # an identified attack, its location, the HTTP request and the cURL
+        # command line command used to find the vuln
         title = "Detailed Vulnerability Information"
         output += "\n\n{0}\n".format(title)
         output += self.generateUnderlineCharacters(len(title), "=")
 
         for vuln in listOfVulns:
             output += "\n\n{0}\n{1}".format(vuln, self.generateUnderlineCharacters(len(vuln), "-"))
-            output += "\n**Desciption**\n\t"
+            output += "\n**[{0} of {1}]Description**\n\t".format()
+
             for k, v in data['classifications'].items():
-                output += "TODO: get description text from classifications.desc\n"
-                output += "**Vulnerability found in .path TODO COMPLETE {0}**\n\n"
-                output += "**Description\n\t TODO COMPLETE .info{0}**\n\n"
-                output += "**HTTP Request\n\t TODO COMPLETE .http_request{0}**\n\n"
-                output += "**cURL command line\n\tTODO COMPLETE .curl_cmd{0}**\n\n"
-                #if k == vuln:
-                #    print(k)
+                if k == vuln:
+                    output += "{0}\n\n".format(v['desc'])
 
-            output += "\n**Solutions**\n\tTODO .sol"
+                    for key, val in data['vulnerabilities'].items():
+                        if key == vuln:
+                            for listItem in val:
+                                if vuln == "Internal Server Error":
+                                    output += "**Vulnerability found in {0}**\n\n".format(listItem['path'])
+                                else:
+                                    output += "**Anomaly found in {0}**\n\n".format(listItem['path'])
+                                output += "**Description**\n\t{0}\n".format(listItem['info'])
+                                output += "**HTTP Request**\n\t{0}\n".format(listItem['http_request'])
+                                output += "**cURL command line**\n\t{0}\n\n".format(listItem['curl_command'])
 
-            # TODO complete me
-
-            output += "\n**References\n\tTODO .ref"
-
-
-        for k, v in data['anomalies'].items():
-            print(k, v)
+                    output += "**Solutions**\n\t{0}".format(v['sol'])
+                    output += "\n**References**\n\t"
+                    for element in v['ref'].items():
+                        output += "{0}\n\t".format(element)
 
         print(output)  # TODO: DEBUG - remove
-        #noOfVulns = len(data['vulnerabilities'].values()) # wrong
-
-        ### DEBUG ###
-        #for key, val in json.loads(json_data).items():
-         #   print(key, val)
 
         return output, noOfVulns
 
