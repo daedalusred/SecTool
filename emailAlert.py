@@ -50,15 +50,15 @@ class Email:
 
         # SUMMARY: the first part of the output is a summary of the number of
         # vulnerabilities found for each category of vulnerability
-        listOfVulns = []  # TODO: change this to a tuple of <name, noOfVulns>
+        dictOfVulns = {}  # TODO: change this to a tuple of <name, noOfVulns>
 
         # maintain count of vulns and append the parsed vuln data to the output
         for k, v in data['vulnerabilities'].items():
             noOfVulns += len(v)
 
             if len(v) != 0:
-                if not listOfVulns.__contains__(v):
-                    listOfVulns.append(k)
+                if v not in dictOfVulns.items():
+                    dictOfVulns[k] = len(v)
 
             # TODO: nicely format output for email (console will look bad)
             # set an appropriate number of tabs for tidy output
@@ -74,7 +74,6 @@ class Email:
 
             output += "{0}{1}{2}\n".format(k, tabs, len(v))
 
-
         # ANOMALIES & VULNERABILITIES: the next part of the output describes
         # an identified attack, its location, the HTTP request and the cURL
         # command line command used to find the vuln
@@ -82,9 +81,9 @@ class Email:
         output += "\n\n{0}\n".format(title)
         output += self.generateUnderlineCharacters(len(title), "=")
 
-        for vuln in listOfVulns:
+        for vuln in dictOfVulns:
             output += "\n\n{0}\n{1}".format(vuln, self.generateUnderlineCharacters(len(vuln), "-"))
-            output += "\n**[{0} of {1}]Description**\n\t".format()
+            output += "\n**Description**\n\t"
 
             for k, v in data['classifications'].items():
                 if k == vuln:
@@ -92,14 +91,19 @@ class Email:
 
                     for key, val in data['vulnerabilities'].items():
                         if key == vuln:
+                            counter = 1
                             for listItem in val:
                                 if vuln == "Internal Server Error":
-                                    output += "**Vulnerability found in {0}**\n\n".format(listItem['path'])
+                                    output += "**[{0} of {1}] Vulnerability found in {2}**\n\n".format(
+                                        counter, dictOfVulns[vuln], listItem['path'])
                                 else:
-                                    output += "**Anomaly found in {0}**\n\n".format(listItem['path'])
+                                    output += "**[{0} of {1}] Anomaly found in {2}**\n\n".format(
+                                        counter, dictOfVulns[vuln], listItem['path'])
+
                                 output += "**Description**\n\t{0}\n".format(listItem['info'])
                                 output += "**HTTP Request**\n\t{0}\n".format(listItem['http_request'])
                                 output += "**cURL command line**\n\t{0}\n\n".format(listItem['curl_command'])
+                                counter += 1
 
                     output += "**Solutions**\n\t{0}".format(v['sol'])
                     output += "\n**References**\n\t"
