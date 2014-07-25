@@ -3,6 +3,7 @@ Plugin interface class. All plugins should inherit from here.
 """
 
 from subprocess import Popen, PIPE
+import logging
 
 
 class ProcessException(Exception):
@@ -30,13 +31,16 @@ class Plugin(object):
         raised which has the return code, command used, and the stderr of the
         process. All text is normalised to UTF-8.
         """
+        logging.info("Attempting to exec {0}".format(cmd[0]))
         proc = Popen(cmd, stdout=PIPE, stderr=PIPE)
         stdout, stderr = proc.communicate()
 
         returncode = proc.returncode
         if returncode != good_ret:
+            logging.error("Failed to execute {0} successfully".format(cmd[0]))
             msg = "Proc returned {0} when command {1} was used. Message is {2}"
             msg = msg.format(returncode, ' '.join(cmd), str(stderr, 'utf-8'))
             raise ProcessException(msg)
         else:
+            logging.info("Successfully executed {0}".format(cmd[0]))
             return str(stdout, 'utf-8')

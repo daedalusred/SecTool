@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+import logging
+logging.basicConfig(filename="sectool.log", filemode='a', level=logging.INFO)
 import time
 import datetime
 from argh import arg, dispatch, set_default_command
@@ -57,8 +59,9 @@ def sectool(url, email, plugins=PLUGINS, checkers=CHECKERS[0:2], output=None,
         t0 = time.time()
         file_loc = instance.run(url, checkers, output, format, auth)
         t1 = time.time()
-
-        print("TIME TAKEN: {0:.2f} minutes".format((t1 - t0) / 60))
+        time_taken = (t1 - t0) / 60
+        logging.info("TIME TAKEN: {0:.2f} minutes".format(time_taken))
+        print("TIME TAKEN: {0:.2f} minutes".format(time_taken))
         send_email(url, email, file_loc, i)
 
 
