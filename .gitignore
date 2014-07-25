@@ -4,6 +4,7 @@
 *.swp
 .env/
 build/
+__pycache__
 .ropeproject
 sectool-report*
 wapitiOutput.json
