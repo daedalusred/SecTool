@@ -29,15 +29,14 @@
       <file leaf-file-name="emailAlert.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/emailAlert.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7236181" vertical-offset="1548" max-vertical-offset="2145">
-              <caret line="177" column="5" selection-start-line="177" selection-start-column="5" selection-end-line="177" selection-end-column="5" />
+            <state vertical-scroll-proportion="0.4087102" vertical-offset="956" max-vertical-offset="2100">
+              <caret line="84" column="64" selection-start-line="84" selection-start-column="64" selection-end-line="84" selection-end-column="64" />
               <folding>
                 <element signature="e#173#184#0" expanded="true" />
                 <element signature="e#921#1088#0" expanded="false" />
-                <element signature="e#4836#5216#0" expanded="false" />
-                <element signature="e#5253#5862#0" expanded="false" />
-                <element signature="e#5906#6161#0" expanded="false" />
-                <element signature="e#6378#6506#0" expanded="false" />
+                <element signature="e#4731#5111#0" expanded="false" />
+                <element signature="e#5148#5757#0" expanded="false" />
+                <element signature="e#5801#6056#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -350,7 +349,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32962587" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32962587" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -388,10 +387,9 @@
           <folding>
             <element signature="e#173#184#0" expanded="true" />
             <element signature="e#921#1088#0" expanded="false" />
-            <element signature="e#4836#5216#0" expanded="false" />
-            <element signature="e#5253#5862#0" expanded="false" />
-            <element signature="e#5906#6161#0" expanded="false" />
-            <element signature="e#6378#6506#0" expanded="false" />
+            <element signature="e#4731#5111#0" expanded="false" />
+            <element signature="e#5148#5757#0" expanded="false" />
+            <element signature="e#5801#6056#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -411,10 +409,9 @@
           <folding>
             <element signature="e#173#184#0" expanded="true" />
             <element signature="e#921#1088#0" expanded="false" />
-            <element signature="e#4836#5216#0" expanded="false" />
-            <element signature="e#5253#5862#0" expanded="false" />
-            <element signature="e#5906#6161#0" expanded="false" />
-            <element signature="e#6378#6506#0" expanded="false" />
+            <element signature="e#4731#5111#0" expanded="false" />
+            <element signature="e#5148#5757#0" expanded="false" />
+            <element signature="e#5801#6056#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -443,15 +440,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/emailAlert.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7236181" vertical-offset="1548" max-vertical-offset="2145">
-          <caret line="177" column="5" selection-start-line="177" selection-start-column="5" selection-end-line="177" selection-end-column="5" />
+        <state vertical-scroll-proportion="0.4087102" vertical-offset="956" max-vertical-offset="2100">
+          <caret line="84" column="64" selection-start-line="84" selection-start-column="64" selection-end-line="84" selection-end-column="64" />
           <folding>
             <element signature="e#173#184#0" expanded="true" />
             <element signature="e#921#1088#0" expanded="false" />
-            <element signature="e#4836#5216#0" expanded="false" />
-            <element signature="e#5253#5862#0" expanded="false" />
-            <element signature="e#5906#6161#0" expanded="false" />
-            <element signature="e#6378#6506#0" expanded="false" />
+            <element signature="e#4731#5111#0" expanded="false" />
+            <element signature="e#5148#5757#0" expanded="false" />
+            <element signature="e#5801#6056#0" expanded="false" />
           </folding>
         </state>
       </provider>

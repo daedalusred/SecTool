@@ -42,7 +42,7 @@ class Email:
 
         # output is what will be displayed in the email
         title = "Summary"
-        output = "{0}\n{1}\n\n**Category**\t\t\t\t**Number of Vulnerabilities Found**\n".format(title, self.generateUnderlineCharacters(len(title), "="))
+        output = "{0}\n{1}\n\n**Category**\t\t\t\t**Number of Vulnerabilities Found**\n".format(title, '='*len(title))
 
         data = json.loads(json_data)
 
@@ -79,10 +79,10 @@ class Email:
         # command line command used to find the vuln
         title = "Detailed Vulnerability Information"
         output += "\n\n{0}\n".format(title)
-        output += self.generateUnderlineCharacters(len(title), "=")
+        output += '='*len(title)
 
         for vuln in dictOfVulns:
-            output += "\n\n{0}\n{1}".format(vuln, self.generateUnderlineCharacters(len(vuln), "-"))
+            output += "\n\n{0}\n{1}".format(vuln, '-'*len(vuln))
             output += "\n**Description**\n\t"
 
             for k, v in data['classifications'].items():
@@ -157,16 +157,6 @@ class Email:
     def triggerEmailAlert(self):
         emailMessage = self.createEmail()
         self.sendEmail(emailMessage)
-
-    # helper functions
-    def generateUnderlineCharacters(self, titleLength, underlineType):
-        line = ""
-        i = 0
-        while i < titleLength:
-            line += underlineType
-            i += 1
-
-        return line
 
 
 ###############################################################################
