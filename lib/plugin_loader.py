@@ -1,7 +1,7 @@
 """Load Plugins from the plugins directory.
 """
 
-from .plugins import wapiti
+from .plugins import wapiti, garmr
 assert wapiti  # Silence unused import warnings
 from os.path import splitext
 from os import listdir
