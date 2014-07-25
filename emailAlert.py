@@ -10,16 +10,15 @@ who triggered the job.
 # https://docs.python.org/2/library/email-examples.html
 
 import json
-import smtplib
 from email.mime.text import MIMEText
+from subprocess import Popen, PIPE
 
 ###############################################################################
 # Members
 ###############################################################################
 
+SENDMAIL = "/usr/sbin/sendmail"
 FROM_ADDRESS = "noreply@digital.cabinet-office.gov.uk"
-SMTP_SERVER = "smtp.gmail.com"
-GOOGLE_APP_PASSWORD = "fnunearexavcvklx"
 
 ###############################################################################
 # Class
@@ -146,14 +145,10 @@ class Email:
         return message
 
     def sendEmail(self, message):
-        srv = smtplib.SMTP(SMTP_SERVER)
-        srv.ehlo()
-        srv.starttls()
-        srv.ehlo()
-        srv.login(self.usersEmailAddress, GOOGLE_APP_PASSWORD)
-        srv.sendmail(FROM_ADDRESS, self.usersEmailAddress, message.as_string())
-        srv.close()
-
+        p = Popen([SENDMAIL, "-t"], stdin=PIPE)
+        p.communicate(bytes(message.as_string(), 'utf-8'))
+        if p.returncode != 0:
+            raise Exception("Oops")
     def triggerEmailAlert(self):
         emailMessage = self.createEmail()
         self.sendEmail(emailMessage)
