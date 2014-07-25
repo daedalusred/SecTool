@@ -35,10 +35,10 @@ def sectool(url, email, plugins=PLUGINS, checkers=CHECKERS[0:2], output=None,
         raise ArgumentError('url and email must both be specified')
 
     if auth is not None and len(auth.split("%")) > 2:
-        print("auth must have the format username%password")
+        raise ArgumentError("auth must have the format username%password")
 
     if output is None:
-        date_frmt = "%y-%m-%d-%H-%M"
+        date_frmt = "%y-%m-%d-%H%M"
         current_date = datetime.datetime.now().strftime(date_frmt)
         output = OUTPUT_FILE.format('{0}{1}'.join(plugins),
                                     current_date,
@@ -48,11 +48,7 @@ def sectool(url, email, plugins=PLUGINS, checkers=CHECKERS[0:2], output=None,
         t0 = time.time()
         file_loc = instance.run(url, checkers, output, format, auth)
         t1 = time.time()
-        print("TIME TAKEN: ", (t1 - t0) / 60, " seconds")
-
-        print(i)
-        # Call e-mail with JSON filename?
-        # url, json_filename, plugin
+        print("TIME TAKEN: {0:.2f} minutes".format((t1 - t0) / 60))
         send_email(url, email, file_loc, i)
 
 
