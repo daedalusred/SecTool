@@ -49,7 +49,7 @@ class Email:
 
         # SUMMARY: the first part of the output is a summary of the number of
         # vulnerabilities found for each category of vulnerability
-        dictOfVulns = {}  # TODO: change this to a tuple of <name, noOfVulns>
+        dictOfVulns = {}
 
         # maintain count of vulns and append the parsed vuln data to the output
         for k, v in data['vulnerabilities'].items():
@@ -109,7 +109,7 @@ class Email:
                     for element in v['ref'].items():
                         output += "{0}\n\t".format(element)
 
-        print(output)  # TODO: DEBUG - remove
+        #print(output)  # TODO: DEBUG - remove
 
         return output, noOfVulns
 
@@ -160,7 +160,7 @@ class Email:
 if __name__ == '__main__':
     e = Email()
     msg = e.createEmail()
-    #e.sendEmail(msg)  # TODO: uncomment for testing
+    e.sendEmail(msg)
 
 
 
