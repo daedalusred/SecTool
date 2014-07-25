@@ -171,9 +171,10 @@ class Email:
 ###############################################################################
 # Testing
 ###############################################################################
-e = Email()
-msg = e.createEmail()
-#e.sendEmail(msg)  # TODO: uncomment for testing
+if __name__ == '__main__':
+    e = Email()
+    msg = e.createEmail()
+    #e.sendEmail(msg)  # TODO: uncomment for testing
 
 
 
