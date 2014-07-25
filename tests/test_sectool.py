@@ -1,6 +1,6 @@
 
 import unittest
-import lib.plugin_loader as plugin_loader
+import sectool.plugin_loader as plugin_loader
 from tests.plugins.test import Test
 
 

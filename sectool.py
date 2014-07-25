@@ -6,7 +6,7 @@ from argh import arg, dispatch, set_default_command
 from argparse import ArgumentParser, ArgumentError
 from sys import exit
 
-from lib.plugin_loader import PluginLoader
+from sectool.plugin_loader import PluginLoader
 from emailAlert import Email
 
 
