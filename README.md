@@ -17,13 +17,6 @@ pip3 install -r requirements.txt
 python3 sectool.py ARGS
 ```
 
-###Release
-```sh
-python3 setup.py install
-sectool ARGS
-```
-
-
 ## Example Run
 
 ```sh

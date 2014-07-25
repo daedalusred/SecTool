@@ -6,7 +6,7 @@ from argh import arg, dispatch, set_default_command
 from argparse import ArgumentParser, ArgumentError
 from sys import exit
 
-from lib.plugin_loader import PluginLoader
+from sectool.plugin_loader import PluginLoader
 from emailAlert import Email
 
 
@@ -26,7 +26,7 @@ OUTPUT_FILE = "sectool-report-{0}-{1}.{2}"
 @arg('--output', help="Output file name.", type=str)
 @arg('--format', choices=FORMAT, help='Format type to use for output',
      type=str)
-@arg('--auth', help="Credentials to use (auth%password)", type=str)
+@arg('--auth', help="Credentials to use (auth%%password)", type=str)
 def sectool(url, email, plugins=PLUGINS, checkers=CHECKERS[0:2], output=None,
             format=FORMAT[0], auth=None):
     """Run security plugins to check for vulnerabilities in web applications.

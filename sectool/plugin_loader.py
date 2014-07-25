@@ -6,7 +6,7 @@ assert wapiti  # Silence unused import warnings
 from os.path import splitext
 from os import listdir
 
-PLUGIN_LOC = "lib/plugins"
+PLUGIN_LOC = "sectool/plugins"
 FILE_NAME_BLACKLIST = ["__init__.py", "__pycache__"]
 FILE_EXT_BLACKLIST = [".swp"]
 
