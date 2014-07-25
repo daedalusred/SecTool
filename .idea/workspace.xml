@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6b5214ae-d6bf-4326-99fd-5ef85309a783" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emailAlert.py" afterPath="$PROJECT_DIR$/emailAlert.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="SecTool.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,15 +29,15 @@
       <file leaf-file-name="emailAlert.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/emailAlert.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.81072026" vertical-offset="1061" max-vertical-offset="2145">
-              <caret line="107" column="69" selection-start-line="107" selection-start-column="69" selection-end-line="107" selection-end-column="69" />
+            <state vertical-scroll-proportion="0.7236181" vertical-offset="1548" max-vertical-offset="2145">
+              <caret line="177" column="5" selection-start-line="177" selection-start-column="5" selection-end-line="177" selection-end-column="5" />
               <folding>
                 <element signature="e#173#184#0" expanded="true" />
                 <element signature="e#921#1088#0" expanded="false" />
-                <element signature="e#4826#5206#0" expanded="false" />
-                <element signature="e#5243#5852#0" expanded="false" />
-                <element signature="e#5896#6151#0" expanded="false" />
-                <element signature="e#6368#6496#0" expanded="false" />
+                <element signature="e#4836#5216#0" expanded="false" />
+                <element signature="e#5253#5862#0" expanded="false" />
+                <element signature="e#5906#6161#0" expanded="false" />
+                <element signature="e#6378#6506#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -349,7 +350,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32962587" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32962587" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -387,10 +388,10 @@
           <folding>
             <element signature="e#173#184#0" expanded="true" />
             <element signature="e#921#1088#0" expanded="false" />
-            <element signature="e#4826#5206#0" expanded="false" />
-            <element signature="e#5243#5852#0" expanded="false" />
-            <element signature="e#5896#6151#0" expanded="false" />
-            <element signature="e#6368#6496#0" expanded="false" />
+            <element signature="e#4836#5216#0" expanded="false" />
+            <element signature="e#5253#5862#0" expanded="false" />
+            <element signature="e#5906#6161#0" expanded="false" />
+            <element signature="e#6378#6506#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -410,10 +411,10 @@
           <folding>
             <element signature="e#173#184#0" expanded="true" />
             <element signature="e#921#1088#0" expanded="false" />
-            <element signature="e#4826#5206#0" expanded="false" />
-            <element signature="e#5243#5852#0" expanded="false" />
-            <element signature="e#5896#6151#0" expanded="false" />
-            <element signature="e#6368#6496#0" expanded="false" />
+            <element signature="e#4836#5216#0" expanded="false" />
+            <element signature="e#5253#5862#0" expanded="false" />
+            <element signature="e#5906#6161#0" expanded="false" />
+            <element signature="e#6378#6506#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -442,15 +443,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/emailAlert.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.81072026" vertical-offset="1061" max-vertical-offset="2145">
-          <caret line="107" column="69" selection-start-line="107" selection-start-column="69" selection-end-line="107" selection-end-column="69" />
+        <state vertical-scroll-proportion="0.7236181" vertical-offset="1548" max-vertical-offset="2145">
+          <caret line="177" column="5" selection-start-line="177" selection-start-column="5" selection-end-line="177" selection-end-column="5" />
           <folding>
             <element signature="e#173#184#0" expanded="true" />
             <element signature="e#921#1088#0" expanded="false" />
-            <element signature="e#4826#5206#0" expanded="false" />
-            <element signature="e#5243#5852#0" expanded="false" />
-            <element signature="e#5896#6151#0" expanded="false" />
-            <element signature="e#6368#6496#0" expanded="false" />
+            <element signature="e#4836#5216#0" expanded="false" />
+            <element signature="e#5253#5862#0" expanded="false" />
+            <element signature="e#5906#6161#0" expanded="false" />
+            <element signature="e#6378#6506#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -72,7 +72,7 @@ class Email:
             if "Potentially" in k:
                 tabs = "\t\t"
 
-            output += "{0}{1}{2}\n".format(k, tabs, len(v))
+            output += "\n* {0}{1}{2}\n".format(k, tabs, len(v))
 
         # ANOMALIES & VULNERABILITIES: the next part of the output describes
         # an identified attack, its location, the HTTP request and the cURL
@@ -87,7 +87,7 @@ class Email:
 
             for k, v in data['classifications'].items():
                 if k == vuln:
-                    output += "{0}\n\n".format(v['desc'])
+                    output += "{0}\n\n\n".format(v['desc'])
 
                     for key, val in data['vulnerabilities'].items():
                         if key == vuln:
@@ -101,12 +101,12 @@ class Email:
                                         counter, dictOfVulns[vuln], listItem['path'])
 
                                 output += "**Description**\n\t{0}\n".format(listItem['info'])
-                                output += "**HTTP Request**\n\t{0}\n".format(listItem['http_request'])
+                                output += "\n**HTTP Request**\n\t{0}\n".format(listItem['http_request'])
                                 output += "**cURL command line**\n\t{0}\n\n".format(listItem['curl_command'])
                                 counter += 1
 
                     output += "**Solutions**\n\t{0}".format(v['sol'])
-                    output += "\n**References**\n\t"
+                    output += "\n\n**References**\n\t"
                     for element in v['ref'].items():
                         output += "{0}\n\t".format(element)
 
