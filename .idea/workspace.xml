@@ -28,8 +28,8 @@
       <file leaf-file-name="emailAlert.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/emailAlert.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7169811" vertical-offset="2012" max-vertical-offset="2595">
-              <caret line="162" column="20" selection-start-line="162" selection-start-column="20" selection-end-line="162" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.33213645" vertical-offset="1480" max-vertical-offset="2610">
+              <caret line="111" column="26" selection-start-line="111" selection-start-column="26" selection-end-line="111" selection-end-column="26" />
               <folding>
                 <element signature="e#173#184#0" expanded="true" />
               </folding>
@@ -40,7 +40,7 @@
       <file leaf-file-name="wapitiOutput.json" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lib/wapitiOutput.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="18105" max-vertical-offset="21750">
+            <state vertical-scroll-proportion="-0.0" vertical-offset="18105" max-vertical-offset="21750">
               <caret line="1207" column="8" selection-start-line="1207" selection-start-column="8" selection-end-line="1207" selection-end-column="8" />
               <folding />
             </state>
@@ -340,7 +340,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30476192" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3041788" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -435,6 +435,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sectool-report-wapiti-14-07-25-1453.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="22020">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_tests.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="621">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lib/wapitiOutput.json">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="18105" max-vertical-offset="21750">
@@ -445,8 +461,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/emailAlert.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7169811" vertical-offset="2012" max-vertical-offset="2595">
-          <caret line="162" column="20" selection-start-line="162" selection-start-column="20" selection-end-line="162" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.33213645" vertical-offset="1480" max-vertical-offset="2610">
+          <caret line="111" column="26" selection-start-line="111" selection-start-column="26" selection-end-line="111" selection-end-column="26" />
           <folding>
             <element signature="e#173#184#0" expanded="true" />
           </folding>

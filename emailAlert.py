@@ -149,6 +149,7 @@ class Email:
         p.communicate(bytes(message.as_string(), 'utf-8'))
         if p.returncode != 0:
             raise Exception("Oops")
+
     def triggerEmailAlert(self):
         emailMessage = self.createEmail()
         self.sendEmail(emailMessage)
