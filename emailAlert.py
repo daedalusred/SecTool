@@ -37,9 +37,19 @@ class Email:
         self.usersEmailAddress = users_email_address
         self.targetUrl = target_url
 
-    ###############################################################################
+    ############################################################################
     # Functions
-    ###############################################################################
+    ############################################################################
+
+    def pad_row(self, columns, max_col):
+        final_str = ""
+        final_str += "|"
+
+        for i in columns:
+            final_str += " {0}{1} | ".format(i, ' ' * (max_col - len(i) - 2))
+
+        final_str += "\n"
+        return final_str
 
     def parse_wapiti_output(self, json_data):
         # json contains infos, vulnerabilities, classifications, anomalies
@@ -48,11 +58,18 @@ class Email:
         output = NO_REPLY
         output += KNOWN_SENDERS
         output += MARKDOWN
+        data = json.loads(json_data)
 
         title = "Summary"
-        output += "{0}\n{1}\n\n**Category**\t\t\t\t**Number of Vulnerabilities Found**\n".format(title, '='*len(title))
+        max_key = max(len(k) for k in data['vulnerabilities']) + 2
 
-        data = json.loads(json_data)
+        headers = list()
+        headers.append(("Category", "Found Vulnerabilities"))
+        headers.append(("-" * (max_key - 2), ":" + ("-" * (max_key - 4)) + ":"))
+
+        output += "{0}\n{1}\n\n".format(title, '='*len(title))
+        for i in headers:
+            output += self.pad_row(i, max_key)
 
         no_of_vulns = 0  # total number of vulnerabilities wapiti found
 
@@ -68,20 +85,7 @@ class Email:
                 if v not in dict_of_vulns.items():
                     dict_of_vulns[k] = len(v)
 
-            # TODO: nicely format output for email (console will look bad)
-            # set an appropriate number of tabs for tidy output
-            tabs = "\t\t\t\t"
-            if len(k) > 15:
-                tabs = "\t\t\t"
-            if "Backup" in k:
-                tabs = "\t\t\t\t"
-            if "Cross" in k:
-                tabs = "\t\t\t"
-            if "Potentially" in k:
-                tabs = "\t\t"
-
-            # an asterisk is used as the following is a bullet point list
-            output += "\n* {0}{1}{2}\n".format(k, tabs, len(v))
+            output += self.pad_row((k, str(len(v))), max_key)
 
         # ANOMALIES & VULNERABILITIES: the next part of the output describes
         # an identified attack, its location, the HTTP request and the cURL
