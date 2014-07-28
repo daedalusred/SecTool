@@ -21,7 +21,7 @@ NO_REPLY = "> Do not reply to this email address as it is unmonitored.\n"
 KNOWN_SENDERS = ">\n> Please add '{0}' to your list of known addresses.\n".format(FROM_ADDRESS)
 MARKDOWN = ">\n> Use a markdown reader to view this message with nice formatting.{0}".format('\n'*3)
 
-DEBUG = True
+DEBUG = False
 
 ###############################################################################
 # Class

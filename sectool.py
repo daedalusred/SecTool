@@ -12,7 +12,6 @@ from sys import exit, stderr
 from sectool.plugin_loader import PluginLoader
 from emailAlert import Email
 
-
 PLUGIN_LOADER = PluginLoader()
 PLUGINS = PLUGIN_LOADER.plugins
 CHECKERS = ['xss', 'sql', 'backup', 'file', 'exec']
@@ -55,7 +54,12 @@ def sectool(url, email, plugins=PLUGINS, checkers=CHECKERS[0:2], output=None,
             exit(FAILURE_CODE)
 
         t0 = time.time()
-        file_loc = instance.run(url, checkers, output, format, auth)
+        try:
+            file_loc = instance.run(url, checkers, output, format, auth)
+        except (KeyboardInterrupt, SystemExit):
+            print("error")
+            file_loc.kill()
+            exit()
         t1 = time.time()
         time_taken = (t1 - t0) / 60
         logging.info("TIME TAKEN: {0:.2f} minutes".format(time_taken))

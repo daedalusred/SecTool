@@ -5,6 +5,9 @@ Plugin interface class. All plugins should inherit from here.
 from subprocess import Popen, PIPE
 import logging
 
+import os
+import signal
+
 
 class ProcessException(Exception):
     """Exception raised if a process fails to execute or executes and returns
@@ -32,7 +35,13 @@ class Plugin(object):
         process. All text is normalised to UTF-8.
         """
         logging.info("Attempting to exec {0}".format(cmd[0]))
-        proc = Popen(cmd, stdout=PIPE, stderr=PIPE)
+
+        try:
+            proc = Popen(cmd, stdout=PIPE, stderr=PIPE)
+        except (KeyboardInterrupt, SystemExit):
+            os.killpg(proc.pid, signal.SIGTERM)
+            proc.send_signal(signal.SIGTERM)
+
         stdout, stderr = proc.communicate()
 
         returncode = proc.returncode
