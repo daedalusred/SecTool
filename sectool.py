@@ -68,8 +68,8 @@ def sectool(url, email, plugins=PLUGINS, checkers=CHECKERS[0:2], output=None,
 def send_email(url, e_mail, file_loc, plugin):
     """Send an e-mail with a report.
     """
-    email_obj = Email(targetUrl=url, usersEmailAddress=e_mail,
-                      jsonOutputFileName=file_loc, pluginName=plugin)
+    email_obj = Email(target_url=url, users_email_address=e_mail,
+                      json_output_filename=file_loc, plugin_name=plugin)
     email_obj.trigger_email_alert()
 
 
