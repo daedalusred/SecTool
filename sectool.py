@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from __future__ import print_function
 
 import logging
 logging.basicConfig(filename="sectool.log", filemode='a', level=logging.INFO)
@@ -6,7 +7,7 @@ import time
 import datetime
 from argh import arg, dispatch, set_default_command
 from argparse import ArgumentParser, ArgumentError
-from sys import exit
+from sys import exit, stderr
 
 from sectool.plugin_loader import PluginLoader
 from emailAlert import Email
@@ -17,12 +18,12 @@ PLUGINS = PLUGIN_LOADER.plugins
 CHECKERS = ['xss', 'sql', 'backup', 'file', 'exec']
 FORMAT = ['json']
 OUTPUT_FILE = "sectool-report-{0}-{1}.{2}"
+FAILURE_CODE = 1
 
 
 @arg('url', type=str, help="URL to test against.")
 @arg('email', help="Email to send generated report to.")
-@arg('--plugins', choices=PLUGINS, help="Plugins to use.", type=str,
-     nargs='+')
+@arg('--plugins', choices=PLUGINS, help="Plugins to use.", type=str, nargs='+')
 @arg('--checkers', choices=CHECKERS, help="Checkers to use.", type=str,
      nargs='+')
 @arg('--output', help="Output file name.", type=str)
@@ -43,26 +44,31 @@ def sectool(url, email, plugins=PLUGINS, checkers=CHECKERS[0:2], output=None,
         raise ArgumentError("auth must have the format username%password")
 
     if output is None:
-        date_frmt = "%y-%m-%d-%H%M"
-        current_date = datetime.datetime.now().strftime(date_frmt)
-        output = OUTPUT_FILE.format('{0}{1}'.join(plugins),
-                                    current_date,
-                                    format)
-    for i in plugins:
+        output = generate_output_name(format, plugins)
+    for plugin in plugins:
         try:
-            instance = PLUGIN_LOADER.load_plugin(i)
+            instance = PLUGIN_LOADER.load_plugin(plugin)
         except NameError:
-            print("""Could not find plugin with name {0}, please enter name of
-                  valid plugin""".format(i))
-            exit(1)
+            msg = ("Could not find plugin with name {0}, "
+                   "please enter name of valid plugin").format(plugin)
+            print(msg, file=stderr)
+            exit(FAILURE_CODE)
 
         t0 = time.time()
         file_loc = instance.run(url, checkers, output, format, auth)
         t1 = time.time()
         time_taken = (t1 - t0) / 60
         logging.info("TIME TAKEN: {0:.2f} minutes".format(time_taken))
-        print("TIME TAKEN: {0:.2f} minutes".format(time_taken))
-        send_email(url, email, file_loc, i)
+        send_email(url, email, file_loc, plugin)
+
+
+def generate_output_name(file_format, plugins):
+    """Generate a filename with the format
+        sectool-report-PLUGINS-DATE.FILEFORMAT.
+    """
+    date_frmt = "%y-%m-%d-%H%M"
+    current_date = datetime.datetime.now().strftime(date_frmt)
+    return OUTPUT_FILE.format('{0}{1}'.join(plugins), current_date, file_format)
 
 
 def send_email(url, e_mail, file_loc, plugin):
