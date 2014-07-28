@@ -26,6 +26,7 @@ class Wapiti(Plugin):
             checkers.append('permanentxss')
 
         checkers.extend(['nikto', 'htaccess', 'crlf'])
+        logging.info("Using checkers {0}".format(' ,'.join(checkers)))
 
         try:
             checker_liststr = ','.join(checkers)
