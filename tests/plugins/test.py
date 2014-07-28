@@ -1,4 +1,4 @@
-from lib import plugin
+from sectool import plugin
 
 class Test(plugin.Plugin):
     def __init__(self, name):
