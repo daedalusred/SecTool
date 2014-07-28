@@ -17,8 +17,10 @@ from subprocess import Popen, PIPE
 
 SENDMAIL = "/usr/sbin/sendmail"
 FROM_ADDRESS = "noreply-sectool@digital.cabinet-office.gov.uk"
-NO_REPLY = "Do not reply to this email address as it is unmonitored.\n"
-KNOWN_SENDERS = "Please add '{0}' to your list of known addresses.{1}".format(FROM_ADDRESS, '\n'*3)
+NO_REPLY = "> Do not reply to this email address as it is unmonitored.\n"
+KNOWN_SENDERS = ">\n> Please add '{0}' to your list of known addresses.\n".format(FROM_ADDRESS)
+MARKDOWN = ">\n> Use a markdown reader to view this message with nice formatting.{0}".format('\n'*3)
+
 DEBUG = True
 
 ###############################################################################
@@ -27,11 +29,13 @@ DEBUG = True
 
 
 class Email:
-    def __init__(self, pluginName = "Wapiti", jsonOutputFileName = "wapitiOutput.json", usersEmailAddress = "peter.mcnerny@digital.cabinet-office.gov.uk", targetUrl = "http://localhost:3000"):
-        self.pluginName = pluginName
-        self.jsonOutputFileName = jsonOutputFileName
-        self.usersEmailAddress = usersEmailAddress
-        self.targetUrl = targetUrl
+    def __init__(self, plugin_name="Wapiti", json_output_filename="wapitiOutput.json",
+                 users_email_address="peter.mcnerny@digital.cabinet-office.gov.uk",
+                 target_url="http://localhost:3000"):
+        self.pluginName = plugin_name
+        self.jsonOutputFileName = json_output_filename
+        self.usersEmailAddress = users_email_address
+        self.targetUrl = target_url
 
     ###############################################################################
     # Functions
@@ -43,25 +47,26 @@ class Email:
         # output is what will be displayed in the email
         output = NO_REPLY
         output += KNOWN_SENDERS
+        output += MARKDOWN
 
         title = "Summary"
         output += "{0}\n{1}\n\n**Category**\t\t\t\t**Number of Vulnerabilities Found**\n".format(title, '='*len(title))
 
         data = json.loads(json_data)
 
-        noOfVulns = 0  # total number of vulnerabilities wapiti found
+        no_of_vulns = 0  # total number of vulnerabilities wapiti found
 
         # SUMMARY: the first part of the output is a summary of the number of
         # vulnerabilities found for each category of vulnerability
-        dictOfVulns = {}
+        dict_of_vulns = {}
 
         # maintain count of vulns and append the parsed vuln data to the output
         for k, v in data['vulnerabilities'].items():
-            noOfVulns += len(v)
+            no_of_vulns += len(v)
 
             if len(v) != 0:
-                if v not in dictOfVulns.items():
-                    dictOfVulns[k] = len(v)
+                if v not in dict_of_vulns.items():
+                    dict_of_vulns[k] = len(v)
 
             # TODO: nicely format output for email (console will look bad)
             # set an appropriate number of tabs for tidy output
@@ -85,7 +90,7 @@ class Email:
         output += "\n\n{0}\n".format(title)
         output += '='*len(title)
 
-        for vuln in dictOfVulns:
+        for vuln in dict_of_vulns:
             output += "\n\n{0}\n{1}".format(vuln, '-'*len(vuln))
             output += "\n**Description**\n\t"
 
@@ -100,10 +105,10 @@ class Email:
                             for listItem in val:
                                 if vuln == "Internal Server Error":
                                     output += "**[{0} of {1}] Vulnerability found in {2}**\n\n".format(
-                                        counter, dictOfVulns[vuln], listItem['path'])
+                                        counter, dict_of_vulns[vuln], listItem['path'])
                                 else:
                                     output += "**[{0} of {1}] Anomaly found in {2}**\n\n".format(
-                                        counter, dictOfVulns[vuln], listItem['path'])
+                                        counter, dict_of_vulns[vuln], listItem['path'])
 
                                 output += "**Description**\n\t{0}\n".format(listItem['info'])
                                 output += "\n**HTTP Request**\n\t{0}\n".format(listItem['http_request'])
@@ -112,26 +117,26 @@ class Email:
 
                     output += "**Solutions**\n\t{0}".format(v['sol'])
                     output += "\n\n**References**\n\t"
-                    
+
                     for element in v['ref'].items():
                         output += "{0}\n\t".format(element)
 
-        return output, noOfVulns
+        return output, no_of_vulns
 
     def get_output_from_json_object(self):
         json_data = open(self.jsonOutputFileName, 'r+').read()
 
         # handling of output needs to be specific to each plugin
-        parsedData = None
+        parsed_data = None
         if self.pluginName.lower() == "wapiti":
-            parsedData = self.parse_wapiti_output(json_data)
+            parsed_data = self.parse_wapiti_output(json_data)
 
         # TODO: add parsing for other vulnerability scanners here
 
         if DEBUG is True:
-            print(parsedData[0])
+            print(parsed_data[0])
 
-        return parsedData[0], parsedData[1]  # output, numOfErrors
+        return parsed_data[0], parsed_data[1]  # output, numOfErrors
 
     def create_email(self):
         # create the contents of the email
@@ -140,14 +145,14 @@ class Email:
         message = MIMEText(output[0])
 
         # how many issues the tool has found
-        numOfErrors = output[1]
+        num_or_errors = output[1]
         issues = "Issues Found"
-        if numOfErrors == 1:
+        if num_or_errors == 1:
             issues = "Issue Found"
 
         # add addressing to the email
         message['Subject'] = "SecTool Results: {0} {1} [{2}]".format(
-            numOfErrors, issues, self.pluginName)
+            num_or_errors, issues, self.pluginName)
         message['from'] = FROM_ADDRESS
         message['to'] = self.usersEmailAddress  # email address of user who ran the tool
         return message
@@ -159,8 +164,7 @@ class Email:
             raise Exception("Oops")
 
     def trigger_email_alert(self):
-        emailMessage = self.create_email()
-        self.send_email(emailMessage)
+        self.send_email(self.create_email())
 
 
 ###############################################################################
@@ -172,7 +176,3 @@ if __name__ == '__main__':
 
     if DEBUG is True:
         e.send_email(msg)
-
-
-
-
