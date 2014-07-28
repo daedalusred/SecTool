@@ -17,9 +17,9 @@ from subprocess import Popen, PIPE
 
 SENDMAIL = "/usr/sbin/sendmail"
 FROM_ADDRESS = "noreply-sectool@digital.cabinet-office.gov.uk"
-NO_REPLY = "Do not reply to this email address as it is unmonitored.\n"
-KNOWN_SENDERS = "Please add '{0}' to your list of known addresses.\n".format(FROM_ADDRESS)
-MARKDOWN = "Use a markdown reader to view this message with nice formatting.{0}".format('\n'*3)
+NO_REPLY = "> Do not reply to this email address as it is unmonitored.\n"
+KNOWN_SENDERS = ">\n> Please add '{0}' to your list of known addresses.\n".format(FROM_ADDRESS)
+MARKDOWN = ">\n> Use a markdown reader to view this message with nice formatting.{0}".format('\n'*3)
 
 DEBUG = True
 
@@ -28,7 +28,6 @@ DEBUG = True
 ###############################################################################
 
 
-# noinspection PyMethodMayBeStatic
 class Email:
     def __init__(self, plugin_name="Wapiti", json_output_filename="wapitiOutput.json",
                  users_email_address="peter.mcnerny@digital.cabinet-office.gov.uk",
@@ -175,5 +174,5 @@ if __name__ == '__main__':
     e = Email()
     msg = e.create_email()
 
-    #if DEBUG is True:
-    #    e.send_email(msg)
+    if DEBUG is True:
+        e.send_email(msg)
