@@ -7,8 +7,6 @@ who triggered the job.
 23/07/2014
 """
 
-# https://docs.python.org/2/library/email-examples.html
-
 import json
 from email.mime.text import MIMEText
 from subprocess import Popen, PIPE
@@ -18,7 +16,10 @@ from subprocess import Popen, PIPE
 ###############################################################################
 
 SENDMAIL = "/usr/sbin/sendmail"
-FROM_ADDRESS = "noreply@digital.cabinet-office.gov.uk"
+FROM_ADDRESS = "noreply-sectool@digital.cabinet-office.gov.uk"
+NO_REPLY = "***DO NOT REPLY TO THIS EMAIL ADDRESS AS IT IS UNMONITORED.***\n"
+KNOWN_SENDERS = "***Please add '{0}' to your list of known addresses.***\n\n".format(FROM_ADDRESS)
+DEBUG = True
 
 ###############################################################################
 # Class
@@ -40,8 +41,11 @@ class Email:
         # infos, vulnerabilities, classifications, anomalies
 
         # output is what will be displayed in the email
+        output = NO_REPLY
+        output += KNOWN_SENDERS
+
         title = "Summary"
-        output = "{0}\n{1}\n\n**Category**\t\t\t\t**Number of Vulnerabilities Found**\n".format(title, '='*len(title))
+        output += "{0}\n{1}\n\n**Category**\t\t\t\t**Number of Vulnerabilities Found**\n".format(title, '='*len(title))
 
         data = json.loads(json_data)
 
@@ -109,25 +113,25 @@ class Email:
                     for element in v['ref'].items():
                         output += "{0}\n\t".format(element)
 
-        #print(output)  # TODO: DEBUG - remove
-
         return output, noOfVulns
 
-    def getOutputFromJsonObject(self, json_data):
-        #json_data = open(self.jsonOutputFileName).read()
+    def getOutputFromJsonObject(self):
         json_data = open(self.jsonOutputFileName, 'r+').read()
-
 
         # handling of output needs to be specific to each plugin
         parsedData = None
         if self.pluginName.lower() == "wapiti":
             parsedData = self.parseWapitiOutput(json_data)
 
+        print(parsedData[0])
+
+        # TODO: add parsing for other vulnerability scanners here
+
         return parsedData[0], parsedData[1]  # output, numOfErrors
 
     def createEmail(self):
         # create the contents of the email
-        output = self.getOutputFromJsonObject(self)
+        output = self.getOutputFromJsonObject()
 
         message = MIMEText(output[0])
 
@@ -161,7 +165,9 @@ class Email:
 if __name__ == '__main__':
     e = Email()
     msg = e.createEmail()
-    e.sendEmail(msg)
+
+    if DEBUG == False:
+        e.sendEmail(msg)
 
 
 
