@@ -46,7 +46,7 @@ class Email:
         final_str += "|"
 
         for i in columns:
-            final_str += " {0}{1} | ".format(i, ' ' * (max_col - len(i) - 2))
+            final_str += " {0} | ".format(i.center(max_col))
 
         final_str += "\n"
         return final_str
@@ -165,8 +165,8 @@ class Email:
         # add addressing/subject to the email
         message['Subject'] = "SecTool Results: {0} {1} [{2}]".format(
             num_or_errors, issues, self.pluginName)
-        message['from'] = FROM_ADDRESS
-        message['to'] = self.usersEmailAddress  # email address of user who ran the tool
+        message['From'] = FROM_ADDRESS
+        message['To'] = self.usersEmailAddress  # email address of user who ran the tool
         return message
 
     """Send the email containing the vulnerability scanner output to the address the
