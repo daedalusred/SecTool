@@ -10,7 +10,7 @@ import errno
 
 PLUGIN_LOC = "sectool/plugins"  # Location of Plugin Dir.
 FILE_NAME_BLACKLIST = ["__init__.py", "__pycache__"]  # Ignore these files
-FILE_EXT_BLACKLIST = [".swp"]   # Ignore files with this extension
+FILE_EXT_BLACKLIST = [".swp", ".pyc"]   # Ignore files with this extension
 
 
 class PluginLoader(object):

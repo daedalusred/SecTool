@@ -45,6 +45,7 @@ def sectool(url, email, plugins=PLUGINS, checkers=CHECKERS[0:2], output=None,
     if output is None:
         output = generate_output_name(format, plugins)
     for plugin in plugins:
+        instance = None
         try:
             instance = PLUGIN_LOADER.load_plugin(plugin)
         except NameError:
@@ -57,9 +58,11 @@ def sectool(url, email, plugins=PLUGINS, checkers=CHECKERS[0:2], output=None,
         try:
             file_loc = instance.run(url, checkers, output, format, auth)
         except (KeyboardInterrupt, SystemExit):
-            print("error")
-            file_loc.kill()
-            exit()
+            try:
+                instance.kill()
+                exit()
+            except ProcessLookupError:
+                exit(1)
         t1 = time.time()
         time_taken = (t1 - t0) / 60
         logging.info("TIME TAKEN: {0:.2f} minutes".format(time_taken))

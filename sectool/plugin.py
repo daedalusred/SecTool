@@ -21,6 +21,7 @@ class Plugin(object):
     """
     def __init__(self, name):
         self.name = name
+        self.pid = None
 
     def run(self, url, checks, output, output_format, auth):
         """Run the plugin with checks and output to output_format
@@ -36,12 +37,8 @@ class Plugin(object):
         """
         logging.info("Attempting to exec {0}".format(cmd[0]))
 
-        try:
-            proc = Popen(cmd, stdout=PIPE, stderr=PIPE)
-        except (KeyboardInterrupt, SystemExit):
-            os.killpg(proc.pid, signal.SIGTERM)
-            proc.send_signal(signal.SIGTERM)
-
+        proc = Popen(cmd, stdout=PIPE, stderr=PIPE)
+        self.pid = proc.pid
         stdout, stderr = proc.communicate()
 
         returncode = proc.returncode
@@ -53,3 +50,11 @@ class Plugin(object):
         else:
             logging.info("Successfully executed {0}".format(cmd[0]))
             return str(stdout, 'utf-8')
+
+    def kill(self):
+        """Kill an executed process before it terminates normally.
+        """
+        if self.pid is not None:
+            os.killpg(self.pid, signal.SIGTERM)
+        else:
+            raise Exception("PID is not set")
