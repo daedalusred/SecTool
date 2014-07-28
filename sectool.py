@@ -76,7 +76,7 @@ def send_email(url, e_mail, file_loc, plugin):
     """
     email_obj = Email(targetUrl=url, usersEmailAddress=e_mail,
                       jsonOutputFileName=file_loc, pluginName=plugin)
-    email_obj.triggerEmailAlert()
+    email_obj.trigger_email_alert()
 
 
 if __name__ == '__main__':

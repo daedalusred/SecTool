@@ -7,8 +7,6 @@ who triggered the job.
 23/07/2014
 """
 
-# https://docs.python.org/2/library/email-examples.html
-
 import json
 from email.mime.text import MIMEText
 from subprocess import Popen, PIPE
@@ -18,7 +16,10 @@ from subprocess import Popen, PIPE
 ###############################################################################
 
 SENDMAIL = "/usr/sbin/sendmail"
-FROM_ADDRESS = "noreply@digital.cabinet-office.gov.uk"
+FROM_ADDRESS = "noreply-sectool@digital.cabinet-office.gov.uk"
+NO_REPLY = "Do not reply to this email address as it is unmonitored.\n"
+KNOWN_SENDERS = "Please add '{0}' to your list of known addresses.{1}".format(FROM_ADDRESS, '\n'*3)
+DEBUG = True
 
 ###############################################################################
 # Class
@@ -36,12 +37,15 @@ class Email:
     # Functions
     ###############################################################################
 
-    def parseWapitiOutput(self, json_data):
-        # infos, vulnerabilities, classifications, anomalies
+    def parse_wapiti_output(self, json_data):
+        # json contains infos, vulnerabilities, classifications, anomalies
 
         # output is what will be displayed in the email
+        output = NO_REPLY
+        output += KNOWN_SENDERS
+
         title = "Summary"
-        output = "{0}\n{1}\n\n**Category**\t\t\t\t**Number of Vulnerabilities Found**\n".format(title, '='*len(title))
+        output += "{0}\n{1}\n\n**Category**\t\t\t\t**Number of Vulnerabilities Found**\n".format(title, '='*len(title))
 
         data = json.loads(json_data)
 
@@ -71,6 +75,7 @@ class Email:
             if "Potentially" in k:
                 tabs = "\t\t"
 
+            # an asterisk is used as the following is a bullet point list
             output += "\n* {0}{1}{2}\n".format(k, tabs, len(v))
 
         # ANOMALIES & VULNERABILITIES: the next part of the output describes
@@ -91,6 +96,7 @@ class Email:
                     for key, val in data['vulnerabilities'].items():
                         if key == vuln:
                             counter = 1
+
                             for listItem in val:
                                 if vuln == "Internal Server Error":
                                     output += "**[{0} of {1}] Vulnerability found in {2}**\n\n".format(
@@ -106,28 +112,30 @@ class Email:
 
                     output += "**Solutions**\n\t{0}".format(v['sol'])
                     output += "\n\n**References**\n\t"
+                    
                     for element in v['ref'].items():
                         output += "{0}\n\t".format(element)
 
-        #print(output)  # TODO: DEBUG - remove
-
         return output, noOfVulns
 
-    def getOutputFromJsonObject(self, json_data):
-        #json_data = open(self.jsonOutputFileName).read()
+    def get_output_from_json_object(self):
         json_data = open(self.jsonOutputFileName, 'r+').read()
-
 
         # handling of output needs to be specific to each plugin
         parsedData = None
         if self.pluginName.lower() == "wapiti":
-            parsedData = self.parseWapitiOutput(json_data)
+            parsedData = self.parse_wapiti_output(json_data)
+
+        # TODO: add parsing for other vulnerability scanners here
+
+        if DEBUG is True:
+            print(parsedData[0])
 
         return parsedData[0], parsedData[1]  # output, numOfErrors
 
-    def createEmail(self):
+    def create_email(self):
         # create the contents of the email
-        output = self.getOutputFromJsonObject(self)
+        output = self.get_output_from_json_object()
 
         message = MIMEText(output[0])
 
@@ -144,14 +152,15 @@ class Email:
         message['to'] = self.usersEmailAddress  # email address of user who ran the tool
         return message
 
-    def sendEmail(self, message):
+    def send_email(self, message):
         p = Popen([SENDMAIL, "-t"], stdin=PIPE)
         p.communicate(bytes(message.as_string(), 'utf-8'))
         if p.returncode != 0:
             raise Exception("Oops")
-    def triggerEmailAlert(self):
-        emailMessage = self.createEmail()
-        self.sendEmail(emailMessage)
+
+    def trigger_email_alert(self):
+        emailMessage = self.create_email()
+        self.send_email(emailMessage)
 
 
 ###############################################################################
@@ -159,8 +168,10 @@ class Email:
 ###############################################################################
 if __name__ == '__main__':
     e = Email()
-    msg = e.createEmail()
-    e.sendEmail(msg)
+    msg = e.create_email()
+
+    if DEBUG is True:
+        e.send_email(msg)
 
 
 
