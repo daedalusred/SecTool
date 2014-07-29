@@ -66,7 +66,7 @@ def sectool(url, email, plugins=PLUGINS, checkers=CHECKERS[0:2], output=None,
         t1 = time.time()
         time_taken = (t1 - t0) / 60
         logging.info("TIME TAKEN: {0:.2f} minutes".format(time_taken))
-        send_email(url, email, file_loc, plugin, no_stdout)
+        send_email(url, email, file_loc, plugin, no_stdout, time_taken)
 
 
 def generate_output_name(file_format, plugins):
@@ -78,11 +78,11 @@ def generate_output_name(file_format, plugins):
     return OUTPUT_FILE.format('{0}{1}'.join(plugins), current_date, file_format)
 
 
-def send_email(url, e_mail, file_loc, plugin, no_stdout):
+def send_email(url, e_mail, file_loc, plugin, no_stdout, time_taken):
     """Send an e-mail with a report.
     """
     email_obj = Email(target_url=url, users_email_address=e_mail,
-                      json_output_filename=file_loc, plugin_name=plugin, show_std_out=not no_stdout)
+                      json_output_filename=file_loc, plugin_name=plugin, show_std_out=not no_stdout, duration=time_taken)
     email_obj.trigger_email_alert()
 
 
