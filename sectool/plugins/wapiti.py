@@ -25,13 +25,13 @@ class Wapiti(Plugin):
         if 'xss' in checkers:
             checkers.append('permanentxss')
 
-        checkers.extend(['nikto', 'htaccess', 'crlf'])
+        checkers.extend(['htaccess', 'crlf'])  # nikto is causing errors
         logging.info("Using checkers {0}".format(' ,'.join(checkers)))
 
         try:
             checker_liststr = ','.join(checkers)
             cmd = ['wapiti', url, '-m', '-all,' + checker_liststr, '--format',
-                   output_format, '-o', output]
+                   output_format, '-o', output, '--verify-ssl', '0']
 
             if auth is not None:
                 cmd.extend(['--auth', auth])

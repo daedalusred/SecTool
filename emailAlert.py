@@ -110,6 +110,11 @@ class Email:
         # ANOMALIES, CLASSIFICATIONS & VULNERABILITIES: the next part of the
         # output describes an identified attack, its location, the HTTP request
         # and the cURL command line command used to find the vuln
+
+        # return early if we have 0 interesting results
+        if no_of_vulns is 0:
+            return output, no_of_vulns
+
         title = "Detailed Vulnerability Information"
         output += "\n\n{0}\n".format(title)
         output += '='*len(title)
@@ -197,7 +202,7 @@ class Email:
         p = Popen([SENDMAIL, "-t"], stdin=PIPE)
         p.communicate(bytes(message.as_string(), 'utf-8'))
         if p.returncode != 0:
-            raise Exception("An exception occured when attempting to email results.")
+            raise Exception("An exception occurred when attempting to email results.")
 
     """sectool.py calls this to create and then send the email of the output generated
     by a vulnerability scanner.

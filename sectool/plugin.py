@@ -38,8 +38,11 @@ class Plugin(object):
         logging.info("Attempting to exec {0}".format(cmd[0]))
 
         proc = Popen(cmd, stdout=PIPE, stderr=PIPE)
+        #proc = Popen(cmd)  #, shell=True
         self.pid = proc.pid
         stdout, stderr = proc.communicate()
+        #stdout, stderr = "", ""
+        #proc.communicate()
 
         returncode = proc.returncode
         if returncode != good_ret:
