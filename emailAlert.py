@@ -32,7 +32,7 @@ DEBUG = False
 class Email:
     def __init__(self, plugin_name="Wapiti", json_output_filename="wapitiOutput.json",
                  users_email_address="peter.mcnerny@digital.cabinet-office.gov.uk",
-                 target_url="http://localhost:3000", show_std_out=False):
+                 target_url="http://localhost:3000", show_std_out=True):
         self.pluginName = plugin_name
         self.jsonOutputFileName = json_output_filename
         self.usersEmailAddress = users_email_address
@@ -61,10 +61,14 @@ class Email:
         # classifications, anomalies
 
         # output is what will be displayed in the email
+        # TODO: refactor this, as no_reply, known_senders, and markdown should
+        #       added to all emails, not just for wapiti
         output = NO_REPLY
         output += KNOWN_SENDERS
         output += MARKDOWN
         data = json.loads(json_data)
+
+        # TODO: add execution time before displaying the summary
 
         title = "Summary"
         max_key = max(len(k) for k in data['vulnerabilities']) + 2
@@ -173,6 +177,7 @@ class Email:
             num_or_errors, issues, self.pluginName)
         message['From'] = FROM_ADDRESS
         message['To'] = self.usersEmailAddress  # email address of user who ran the tool
+
         return message
 
     """Send the email containing the vulnerability scanner output to the address the
@@ -194,9 +199,11 @@ class Email:
 ###############################################################################
 # Testing
 ###############################################################################
+"""
 if __name__ == '__main__':
     e = Email()
     msg = e.create_email()
 
     if DEBUG is True:
         e.send_email(msg)
+"""

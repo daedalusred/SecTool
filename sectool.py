@@ -19,7 +19,6 @@ FORMAT = ['json']
 OUTPUT_FILE = "sectool-report-{0}-{1}.{2}"
 FAILURE_CODE = 1
 
-
 @arg('url', type=str, help="URL to test against.")
 @arg('email', help="Email to send generated report to.")
 @arg('--plugins', choices=PLUGINS, help="Plugins to use.", type=str, nargs='+')
@@ -29,8 +28,9 @@ FAILURE_CODE = 1
 @arg('--format', choices=FORMAT, help='Format type to use for output',
      type=str)
 @arg('--auth', help="Credentials to use (auth%%password)", type=str)
+@arg('--no_stdout', help="Show or hide console output from sectool", action='store_true')
 def sectool(url, email, plugins=PLUGINS, checkers=CHECKERS[0:2], output=None,
-            format=FORMAT[0], auth=None):
+            format=FORMAT[0], auth=None, no_stdout=False):
     """Run security plugins to check for vulnerabilities in web applications.
     This tool is designed to be integrated inside of a Continuous Integration
     pipeline.
@@ -66,7 +66,7 @@ def sectool(url, email, plugins=PLUGINS, checkers=CHECKERS[0:2], output=None,
         t1 = time.time()
         time_taken = (t1 - t0) / 60
         logging.info("TIME TAKEN: {0:.2f} minutes".format(time_taken))
-        send_email(url, email, file_loc, plugin)
+        send_email(url, email, file_loc, plugin, no_stdout)
 
 
 def generate_output_name(file_format, plugins):
@@ -78,11 +78,11 @@ def generate_output_name(file_format, plugins):
     return OUTPUT_FILE.format('{0}{1}'.join(plugins), current_date, file_format)
 
 
-def send_email(url, e_mail, file_loc, plugin):
+def send_email(url, e_mail, file_loc, plugin, no_stdout):
     """Send an e-mail with a report.
     """
     email_obj = Email(target_url=url, users_email_address=e_mail,
-                      json_output_filename=file_loc, plugin_name=plugin)
+                      json_output_filename=file_loc, plugin_name=plugin, show_std_out=not no_stdout)
     email_obj.trigger_email_alert()
 
 
