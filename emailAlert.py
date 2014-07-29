@@ -23,6 +23,7 @@ MARKDOWN = ">\n> Use a markdown reader to view this message with nice formatting
 
 DEBUG = False
 
+
 ###############################################################################
 # Class
 ###############################################################################
@@ -31,11 +32,12 @@ DEBUG = False
 class Email:
     def __init__(self, plugin_name="Wapiti", json_output_filename="wapitiOutput.json",
                  users_email_address="peter.mcnerny@digital.cabinet-office.gov.uk",
-                 target_url="http://localhost:3000"):
+                 target_url="http://localhost:3000", show_std_out=False):
         self.pluginName = plugin_name
         self.jsonOutputFileName = json_output_filename
         self.usersEmailAddress = users_email_address
         self.targetUrl = target_url
+        self.show_std_out = show_std_out
 
     ############################################################################
     # Functions
@@ -145,6 +147,10 @@ class Email:
         # TODO: add parsing for other vulnerability scanners here
 
         if DEBUG is True:
+            print(parsed_data[0])
+
+        # write output to console for CI
+        if self.show_std_out is True:
             print(parsed_data[0])
 
         return parsed_data[0], parsed_data[1]  # output, numOfErrors
