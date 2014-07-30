@@ -8,9 +8,8 @@ import datetime
 from argh import arg, dispatch, set_default_command
 from argparse import ArgumentParser, ArgumentError
 from sys import exit, stderr
-
 from sectool.plugin_loader import PluginLoader
-from emailAlert import Email
+from sectool.email_alert import Email
 
 PLUGIN_LOADER = PluginLoader()
 PLUGINS = PLUGIN_LOADER.plugins
@@ -18,6 +17,7 @@ CHECKERS = ['xss', 'sql', 'backup', 'file', 'exec']
 FORMAT = ['json']
 OUTPUT_FILE = "sectool-report-{0}-{1}.{2}"
 FAILURE_CODE = 1
+
 
 @arg('url', type=str, help="URL to test against.")
 @arg('email', help="Email to send generated report to.")
@@ -28,7 +28,8 @@ FAILURE_CODE = 1
 @arg('--format', choices=FORMAT, help='Format type to use for output',
      type=str)
 @arg('--auth', help="Credentials to use (auth%%password)", type=str)
-@arg('--no_stdout', help="Show or hide console output from sectool", action='store_true')
+@arg('--no_stdout', help="Show or hide console output from sectool",
+     action='store_true')
 def sectool(url, email, plugins=PLUGINS, checkers=CHECKERS[0:2], output=None,
             format=FORMAT[0], auth=None, no_stdout=False):
     """Run security plugins to check for vulnerabilities in web applications.
@@ -82,7 +83,8 @@ def send_email(url, e_mail, file_loc, plugin, no_stdout, time_taken):
     """Send an e-mail with a report.
     """
     email_obj = Email(target_url=url, users_email_address=e_mail,
-                      json_output_filename=file_loc, plugin_name=plugin, show_std_out=not no_stdout, duration=time_taken)
+                      input_file=file_loc, plugin_name=plugin,
+                      show_std_out=not no_stdout, duration=time_taken)
     email_obj.trigger_email_alert()
 
 

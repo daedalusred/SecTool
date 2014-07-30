@@ -9,3 +9,4 @@ __pycache__
 .ropeproject
 sectool-report*
 wapitiOutput.json
+.DS_Store
