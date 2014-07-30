@@ -1,4 +1,4 @@
-from ..parser import Parser
+from ..parser import Parser, BASE_JSON, BASE_VULN_ITEM
 from .. import markdown_utils as mdu
 
 
@@ -68,4 +68,25 @@ class Wapiti(Parser):
         pass
 
     def parse_to_json(self, data, return_dict=False):
-        pass
+        vulns_list = list()
+        for k, v in data['vulnerabilities'].items():
+            vuln = BASE_JSON.copy()
+
+            vuln['type'] = k
+            vuln['sol'] = data['classifications'][k]['sol']
+            vuln['refs'] = data['classifications'][k]['ref']
+
+            total_items = len(v)
+            counter = 1
+            for vuln_data_item in v:
+                item = BASE_VULN_ITEM.copy()
+                item['number'] = counter
+                item['total'] = total_items
+                item['data']['description'] = vuln_data_item['info']
+                item['data']['http_request'] = vuln_data_item['http_request']
+                item['data']['cURL_string'] = vuln_data_item['curl_command']
+                vuln['items'].append(item)
+                counter += 1
+            vulns_list.append(vuln)
+
+        return json.dumps(vulns_list)

@@ -1,3 +1,20 @@
+BASE_JSON = {
+    'type': '',
+    'items': [],
+    'sol': '',
+    'refs': []
+}
+BASE_VULN_ITEM = {
+    'number': 0,
+    'total': 1,
+    'data': {
+        'description': '',
+        'http_request': '',
+        'cURL_string': '',
+    }
+}
+
+
 class Parser(object):
 
     def __init__(self):
