@@ -12,7 +12,7 @@ class Wapiti(Plugin):
     """
 
     def __init__(self, name):
-        super().__init__(name)
+        super(Wapiti, self).__init__(name)
 
     def run(self, url, checkers, output, auth):
         """Wapiti uses all of the arguments passed but auth is optional.

@@ -7,6 +7,7 @@ import json
 from email.mime.text import MIMEText
 from subprocess import Popen, PIPE
 import sectool.markdown_utils
+from sectool.utils import bytes_str
 from sectool.parsers import wapiti as wapiti_parser
 
 SENDMAIL = "/usr/sbin/sendmail"
@@ -113,7 +114,7 @@ class Email(object):
         address the user specified when kicking-off the job.
         """
         p = Popen([SENDMAIL, "-t"], stdin=PIPE)
-        p.communicate(bytes(message.as_string(), 'utf-8'))
+        p.communicate(bytes_str(message.as_string()))
         if p.returncode != 0:
             raise Exception(("An exception occurred when attempting",
                             "to email results."))

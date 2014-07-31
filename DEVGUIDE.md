@@ -1,4 +1,3 @@
-
 # Development Guide for SecTool
 
 ## Structure

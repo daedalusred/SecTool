@@ -38,11 +38,8 @@ class Plugin(object):
         logging.info("Attempting to exec {0}".format(cmd[0]))
 
         proc = Popen(cmd, stdout=PIPE, stderr=PIPE)
-        #proc = Popen(cmd)  #, shell=True
         self.pid = proc.pid
         stdout, stderr = proc.communicate()
-        #stdout, stderr = "", ""
-        #proc.communicate()
 
         returncode = proc.returncode
         if returncode != good_ret:
@@ -52,7 +49,7 @@ class Plugin(object):
             raise ProcessException(msg)
         else:
             logging.info("Successfully executed {0}".format(cmd[0]))
-            return str(stdout, 'utf-8')
+            return stdout.decode('utf-8')
 
     def kill(self):
         """Kill an executed process before it terminates normally.

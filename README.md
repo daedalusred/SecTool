@@ -7,7 +7,7 @@ applications.  Wapiti (http://wapiti.sourceforge.net/) is the vulnerability scan
 ##Dependencies
 - virtualenv
 - pip
-- python3
+- python 2.7+ / python 3.3+
 
 ##Install
 
@@ -22,5 +22,5 @@ python3 sectool.py ARGS
 ## Example Run
 
 ```sh
-python3 sectool.py http://0.0.0.0:3000 EMAIL --auth admin@metacorp.com%admin1234
+python sectool.py http://0.0.0.0:3000 EMAIL --auth admin@metacorp.com%admin1234
 ```
