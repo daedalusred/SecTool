@@ -1,7 +1,7 @@
 # SECTOOL
 
-A tool for for CI pipeline integration that is designed to check for security issues in web 
-applications. 
+A tool for Continuous Integration pipeline integration that is designed to check for security issues in web
+applications.  Wapiti (http://wapiti.sourceforge.net/) is the vulnerability scanner that SecTool currently supports.
 
 
 ##Dependencies
