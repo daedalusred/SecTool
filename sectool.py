@@ -14,7 +14,7 @@ from sectool.email_alert import Email
 PLUGIN_LOADER = PluginLoader()
 PLUGINS = PLUGIN_LOADER.plugins
 CHECKERS = ['xss', 'sql', 'backup', 'file', 'exec']
-FORMAT = ['json']
+FORMAT = ['html', 'markdown', 'json']
 OUTPUT_FILE = "sectool-report-{0}-{1}.{2}"
 FAILURE_CODE = 1
 
@@ -31,7 +31,7 @@ FAILURE_CODE = 1
 @arg('--no_stdout', help="Show or hide console output from sectool",
      action='store_true')
 def sectool(url, email, plugins=PLUGINS, checkers=CHECKERS[0:2], output=None,
-            format=FORMAT[0], auth=None, no_stdout=False):
+            format=FORMAT[1], auth=None, no_stdout=False):
     """Run security plugins to check for vulnerabilities in web applications.
     This tool is designed to be integrated inside of a Continuous Integration
     pipeline.
@@ -57,7 +57,7 @@ def sectool(url, email, plugins=PLUGINS, checkers=CHECKERS[0:2], output=None,
 
         t0 = time.time()
         try:
-            file_loc = instance.run(url, checkers, output, format, auth)
+            file_loc = instance.run(url, checkers, output, auth)
         except (KeyboardInterrupt, SystemExit):
             try:
                 instance.kill()
@@ -67,7 +67,7 @@ def sectool(url, email, plugins=PLUGINS, checkers=CHECKERS[0:2], output=None,
         t1 = time.time()
         time_taken = (t1 - t0) / 60
         logging.info("TIME TAKEN: {0:.2f} minutes".format(time_taken))
-        send_email(url, email, file_loc, plugin, no_stdout, time_taken)
+        send_email(url, email, file_loc, plugin, no_stdout, time_taken, format)
 
 
 def generate_output_name(file_format, plugins):
@@ -79,13 +79,14 @@ def generate_output_name(file_format, plugins):
     return OUTPUT_FILE.format('{0}{1}'.join(plugins), current_date, file_format)
 
 
-def send_email(url, e_mail, file_loc, plugin, no_stdout, time_taken):
+def send_email(url, e_mail, file_loc, plugin, no_stdout, time_taken,
+               output_format):
     """Send an e-mail with a report.
     """
     email_obj = Email(target_url=url, users_email_address=e_mail,
                       input_file=file_loc, plugin_name=plugin,
                       show_std_out=not no_stdout, duration=time_taken)
-    email_obj.trigger_email_alert()
+    email_obj.trigger_email_alert(output_format)
 
 
 if __name__ == '__main__':

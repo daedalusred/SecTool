@@ -23,7 +23,7 @@ class Plugin(object):
         self.name = name
         self.pid = None
 
-    def run(self, url, checks, output, output_format, auth):
+    def run(self, url, checks, output, auth):
         """Run the plugin with checks and output to output_format
         """
         return NotImplementedError("Method has not been implemented")

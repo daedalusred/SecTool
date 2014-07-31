@@ -14,7 +14,7 @@ class Wapiti(Plugin):
     def __init__(self, name):
         super().__init__(name)
 
-    def run(self, url, checkers, output, output_format, auth):
+    def run(self, url, checkers, output, auth):
         """Wapiti uses all of the arguments passed but auth is optional.
         """
         logging.info("Loading Plugin Wapiti")
@@ -31,7 +31,7 @@ class Wapiti(Plugin):
         try:
             checker_liststr = ','.join(checkers)
             cmd = ['wapiti', url, '-m', '-all,' + checker_liststr, '--format',
-                   output_format, '-o', output, '--verify-ssl', '0']
+                   'json', '-o', output, '--verify-ssl', '0']
 
             if auth is not None:
                 cmd.extend(['--auth', auth])

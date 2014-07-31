@@ -1,5 +1,7 @@
 from ..parser import Parser, BASE_JSON, BASE_VULN_ITEM
 from .. import markdown_utils as mdu
+import misaka
+import json
 
 
 class Wapiti(Parser):
@@ -35,9 +37,7 @@ class Wapiti(Parser):
             output += "{0}\n\n".format(resources['desc'])
 
             for vuln_data_item in vuln_data:
-
                 type_str = "[{0} of {1}] Anomaly found in {2}.\n\n"
-
                 if vuln == "Internal Server Error":
                     type_str = "[{0} of {1}] Vulnerability found in {2}.\n\n"
 
@@ -64,14 +64,17 @@ class Wapiti(Parser):
 
         return output
 
-    def parse_to_html(self, data):
-        pass
+    def parse_to_html(self, data, **kwargs):
+        if 'current_output' in kwargs:
+            return misaka.html(kwargs['current_output'] +
+                               self.parse_to_markdown(data),
+                               extensions=misaka.EXT_TABLES |
+                               misaka.EXT_FENCED_CODE)
 
     def parse_to_json(self, data, return_dict=False):
         vulns_list = list()
         for k, v in data['vulnerabilities'].items():
             vuln = BASE_JSON.copy()
-
             vuln['type'] = k
             vuln['sol'] = data['classifications'][k]['sol']
             vuln['refs'] = data['classifications'][k]['ref']
@@ -88,5 +91,4 @@ class Wapiti(Parser):
                 vuln['items'].append(item)
                 counter += 1
             vulns_list.append(vuln)
-
         return json.dumps(vulns_list)
